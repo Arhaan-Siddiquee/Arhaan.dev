@@ -318,6 +318,7 @@ function App() {
         
         {/* Header */}
         <header className="fixed top-0 left-0 right-0 z-40 backdrop-blur-lg bg-black bg-opacity-30 border-b border-white border-opacity-5">
+          
           <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
             <motion.a 
               href="#" 
@@ -332,7 +333,7 @@ function App() {
                 textStyle={{ color: "#fff", fontSize: "2rem", fontWeight: "bold" }}
                 startDelay={500}
                 cursorColor="gray"
-                multiText={["ARHAAN", "ARHAAN.DEV"]}
+                multiText={["Arhaan", "Arhaan.Dev"]}
                 multiTextDelay={1500}
                 typeSpeed={100}
                 deleteSpeed={50}
@@ -373,10 +374,11 @@ function App() {
         </header>
         
         <main className="max-w-7xl mx-auto pt-32 px-6">
+          
           {/* Hero Section */}
           <motion.section 
             ref={heroRef}
-            className="min-h-screen flex flex-col justify-center"
+            className="min-h-screen mt-4 flex flex-col justify-center"
             variants={containerVariants}
             initial="hidden"
             animate={heroInView ? "visible" : "hidden"}
@@ -475,22 +477,24 @@ function App() {
                     When I'm not coding, I enjoy exploring new technologies, watching anime, and experimenting with creative side projects. I believe in continuous learning and staying ahead of design trends to deliver innovative solutions to my clients.
                   </p>
                 </motion.div>
-                
+          
                 <motion.div variants={itemVariants}>
                   <NoirHeading>CONNECT</NoirHeading>
                   <div className="space-y-4">
                     {[
-                      { platform: "Twitter", username: "@ArhaanSiddique0", icon: <FiTwitter /> },
-                      { platform: "LinkedIn", username: "@arhaansiddiquee", icon: <FiLinkedin /> },
-                      { platform: "Github", username: "@arhaan", icon: <FiGithub /> }
+                      { platform: "Twitter", username: "@ArhaanSiddique0", icon: <FiTwitter />, link: "https://twitter.com/ArhaanSiddique0" },
+                      { platform: "LinkedIn", username: "@arhaansiddiquee", icon: <FiLinkedin />, link: "https://linkedin.com/in/arhaansiddiquee" },
+                      { platform: "Github", username: "@Arhaan-Siddiquee", icon: <FiGithub />, link: "https://github.com/arhaan-siddiquee" }
                     ].map((social, index) => (
                       <motion.a 
                         key={index}
-                        href="#" 
+                        href={social.link} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
                         className="group flex items-center bg-black bg-opacity-40 p-4 rounded-lg hover:bg-opacity-60 transition-all duration-300 border border-white border-opacity-0 hover:border-opacity-5"
                         whileHover={{ x: 5 }}
-                        onMouseEnter={() => {setIsHovering(true); setHoverItem(social.platform)}}
-                        onMouseLeave={() => {setIsHovering(false); setHoverItem(null)}}
+                        onMouseEnter={() => { setIsHovering(true); setHoverItem(social.platform) }}
+                        onMouseLeave={() => { setIsHovering(false); setHoverItem(null) }}
                       >
                         <div className="w-10 h-10 bg-white text-black rounded-lg flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
                           {social.icon}
@@ -1447,8 +1451,8 @@ function App() {
                 }}
                 transition={{ repeat: Infinity, duration: 5 }}
               >
-                "Technology alone is not enough. It's technology married with the liberal arts, 
-                married with the humanities, that yields the results that make our hearts sing."
+                "Don’t count the bugs, make the code count., 
+                Develop like a champion, code like a legend."
               </motion.p>
               <motion.p 
                 className="mt-4 text-gray-400"
