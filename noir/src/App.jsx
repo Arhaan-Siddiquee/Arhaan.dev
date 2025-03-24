@@ -83,6 +83,31 @@ const NoirButton = styled(motion.button)`
     left: 100%;
   }
 `;
+// Add these arrays before your motion.section component
+const workExperience = [
+  {
+    company: "Niramaya",
+    position: "Frontend Web Developer Intern",
+    type: "On-Site",
+    period: "Sep 2024 - Mar 2025",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt."
+  }
+];
+
+const collegeClubs = [
+  {
+    club: "CodeNex Club SRM",
+    role: "Technical Team Member",
+    period: "Sep 2024 - Present",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+  },
+  {
+    club: "Founders Club",
+    role: "Creative Associate Lead",
+    period: "Oct 2023 - Present",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore."
+  },
+];
 
 const ProgressBar = styled(motion.div)`
   height: 2px;
@@ -254,17 +279,23 @@ function App() {
   // Education data
   const education = [
     {
-      year: "2023 - 2027",
-      title: "Bachelor's Degree",
-      institution: "B.Tech, SRM University",
-      description: "Computer Science and Engineering, specializing in AI & Machine Learning"
+      year: "2019 - 2021",
+      title: "Matriculation",
+      institution: "D.A.V Public Schools",
+      description: "Completed with 91% marks in Science stream"
     },
     {
       year: "2021 - 2023",
       title: "Intermediate",
       institution: "Science, D.A.V Public School",
       description: "Specialized in Physics, Chemistry and Mathematics with high distinction"
-    }
+    },
+    {
+      year: "2023 - 2027",
+      title: "Bachelor's Degree",
+      institution: "B.Tech, SRM University",
+      description: "Computer Science and Engineering, specializing in AI & Machine Learning"
+    },
   ];
 
   return (
@@ -512,158 +543,237 @@ function App() {
           </motion.section>
           
           {/* Education Journey */}
-          <motion.section 
-            className="my-24"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-          >
-            <motion.div variants={itemVariants} className="flex items-center mb-12">
-              <div className="w-12 h-1 bg-white mr-4"></div>
-              <NoirHeading className="text-3xl md:text-4xl">EDUCATION JOURNEY</NoirHeading>
-            </motion.div>
-            
-            <div className="relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-white before:to-transparent">
-              {education.map((edu, index) => (
-                <motion.div 
-                  key={index} 
-                  className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group mb-16"
-                  variants={itemVariants}
-                  custom={index}
-                >
-                  <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-black text-white shadow-lg shadow-black/20 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
-                    <motion.span
-                      initial={{ opacity: 0, scale: 0.6 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 0.2 * index, duration: 0.5 }}
-                    >
-                      {index + 1}
-                    </motion.span>
-                  </div>
-                  
+        <motion.section 
+              className="my-24"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+            >
+              {/* Work Experience Section */}
+              <motion.div variants={itemVariants} className="flex items-center mb-12">
+                <div className="w-12 h-1 bg-white mr-4"></div>
+                <NoirHeading className="text-3xl md:text-4xl">WORK EXPERIENCE</NoirHeading>
+              </motion.div>
+              
+              <div className="space-y-6 mb-16">
+                {/* Work Experience Cards */}
+                {workExperience.map((work, index) => (
                   <motion.div 
-                    className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)]"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1 * index, duration: 0.6 }}
-                    viewport={{ once: true }}
+                    key={index} 
+                    className="relative"
+                    variants={itemVariants}
+                    custom={index}
                   >
-                    <Tilt options={{ max: 8, scale: 1.02, speed: 300 }}>
-                      <GlassCard 
-                        className="overflow-hidden"
-                        whileHover={{ 
-                          scale: 1.03, 
-                          boxShadow: "0 0 20px rgba(255,255,255,0.1)",
-                          transition: { duration: 0.3 }  
-                        }}
+                    <GlassCard 
+                      className="overflow-hidden"
+                      whileHover={{ 
+                        scale: 1.02, 
+                        boxShadow: "0 0 15px rgba(255,255,255,0.08)",
+                        transition: { duration: 0.3 }  
+                      }}
+                    >
+                      <div className="p-5">
+                        <div className="flex items-start gap-4">
+                          <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center overflow-hidden">
+                            {/* Company Logo Placeholder */}
+                            <div className="w-8 h-8 bg-white/20 rounded-full"></div>
+                          </div>
+                          
+                          <div className="flex-1">
+                            <div className="flex justify-between items-start">
+                              <div>
+                                <div className="font-bold text-white text-lg mb-1">{work.company}</div>
+                                <div className="text-gray-400 text-sm">{work.position}</div>
+                              </div>
+                              <div className="text-xs text-white/70 font-mono px-2 py-1 rounded-full bg-white/5 border border-white/10">
+                                {work.period}
+                              </div>
+                            </div>
+                            
+                            <div className="text-xs text-white/60 mt-1 mb-2">{work.type}</div>
+                            <p className="text-gray-300 text-sm">{work.description}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </GlassCard>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* College Clubs Section */}
+              <motion.div variants={itemVariants} className="flex items-center mb-12">
+                <div className="w-12 h-1 bg-white mr-4"></div>
+                <NoirHeading className="text-3xl md:text-4xl">COLLEGE CLUBS</NoirHeading>
+              </motion.div>
+              
+              <div className="space-y-6 mb-16">
+                {/* College Clubs Cards */}
+                {collegeClubs.map((club, index) => (
+                  <motion.div 
+                    key={index} 
+                    className="relative"
+                    variants={itemVariants}
+                    custom={index}
+                  >
+                    <GlassCard 
+                      className="overflow-hidden"
+                      whileHover={{ 
+                        scale: 1.02, 
+                        boxShadow: "0 0 15px rgba(255,255,255,0.08)",
+                        transition: { duration: 0.3 }  
+                      }}
+                    >
+                      <div className="p-5">
+                        <div className="flex items-start gap-4">
+                          <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center overflow-hidden">
+                            {/* Club Logo Placeholder */}
+                            <div className="w-8 h-8 bg-white/20 rounded-full"></div>
+                          </div>
+                          
+                          <div className="flex-1">
+                            <div className="flex justify-between items-start">
+                              <div>
+                                <div className="font-bold text-white text-lg mb-1">{club.club}</div>
+                                <div className="text-gray-400 text-sm">{club.role}</div>
+                              </div>
+                              <div className="text-xs text-white/70 font-mono px-2 py-1 rounded-full bg-white/5 border border-white/10">
+                                {club.period}
+                              </div>
+                            </div>
+                            
+                            <p className="text-gray-300 text-sm mt-2">{club.description}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </GlassCard>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Education Section - Original Timeline but with modified card size */}
+              <motion.div variants={itemVariants} className="flex items-center mb-12">
+                <div className="w-12 h-1 bg-white mr-4"></div>
+                <NoirHeading className="text-3xl md:text-4xl">EDUCATION JOURNEY</NoirHeading>
+              </motion.div>
+              
+              <div className="relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-white before:to-transparent">
+                {education.map((edu, index) => (
+                  <motion.div 
+                    key={index} 
+                    className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group mb-16"
+                    variants={itemVariants}
+                    custom={index}
+                  >
+                    <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-black text-white shadow-lg shadow-black/20 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                      <motion.span
+                        initial={{ opacity: 0, scale: 0.6 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.2 * index, duration: 0.5 }}
                       >
-                        <motion.div
-                          initial="collapsed"
-                          whileHover="expanded"
-                          animate="collapsed"
-                          variants={{
-                            collapsed: { height: "auto" },
-                            expanded: { height: "auto" }
+                        {index + 1}
+                      </motion.span>
+                    </div>
+                    
+                    <motion.div 
+                      className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)]"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.1 * index, duration: 0.6 }}
+                      viewport={{ once: true }}
+                    >
+                      <Tilt options={{ max: 8, scale: 1.02, speed: 300 }}>
+                        <GlassCard 
+                          className="overflow-hidden"
+                          whileHover={{ 
+                            scale: 1.03, 
+                            boxShadow: "0 0 20px rgba(255,255,255,0.1)",
+                            transition: { duration: 0.3 }  
                           }}
                         >
-                          <div className="p-6">
-                            <div className="flex justify-between items-start mb-3">
-                              <div>
-                                <motion.div 
-                                  className="font-bold text-white text-xl mb-1"
-                                  whileHover={{ scale: 1.01 }}
-                                >
-                                  {edu.title}
-                                </motion.div>
-                                <div className="text-gray-400 mb-2 flex items-center">
-                                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                                  </svg>
-                                  {edu.institution}
-                                </div>
-                              </div>
-                              <div className="text-sm text-white font-mono px-3 py-1 rounded-full bg-white/10">
-                                {edu.year}
-                              </div>
-                            </div>
-                            
-                            <p className="text-gray-300 mb-4">{edu.description}</p>
-                            
-                            {/* Expanded Content - Skills & Achievements */}
-                            <motion.div
-                              variants={{
-                                collapsed: { opacity: 0.8, height: 0, marginTop: 0, display: "none" },
-                                expanded: { opacity: 1, height: "auto", marginTop: "1rem", display: "block" }
-                              }}
-                              transition={{ duration: 0.3 }}
-                              className="overflow-hidden"
-                            >
-                              <div className="border-t border-white/10 pt-4 mt-2">
-                                <div className="mb-3">
-                                  <div className="text-white/70 text-sm mb-2 font-semibold">Key Subjects:</div>
-                                  <div className="flex flex-wrap gap-2">
-                                    {edu.subjects?.map((subject, idx) => (
-                                      <span key={idx} className="text-xs bg-white/5 border border-white/10 rounded-full px-3 py-1 text-white/80">
-                                        {subject}
-                                      </span>
-                                    )) || (
-                                      <>
-                                        <span className="text-xs bg-white/5 border border-white/10 rounded-full px-3 py-1 text-white/80">
-                                          Computer Science
-                                        </span>
-                                        <span className="text-xs bg-white/5 border border-white/10 rounded-full px-3 py-1 text-white/80">
-                                          Data Structures
-                                        </span>
-                                        <span className="text-xs bg-white/5 border border-white/10 rounded-full px-3 py-1 text-white/80">
-                                          Algorithms
-                                        </span>
-                                      </>
-                                    )}
+                          <motion.div
+                            initial="collapsed"
+                            whileHover="expanded"
+                            animate="collapsed"
+                            variants={{
+                              collapsed: { height: "auto" },
+                              expanded: { height: "auto" }
+                            }}
+                          >
+                            <div className="p-5">
+                              <div className="flex justify-between items-start mb-3">
+                                <div>
+                                  <motion.div 
+                                    className="font-bold text-white text-lg mb-1"
+                                    whileHover={{ scale: 1.01 }}
+                                  >
+                                    {edu.title}
+                                  </motion.div>
+                                  <div className="text-gray-400 mb-2 flex items-center text-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                                    </svg>
+                                    {edu.institution}
                                   </div>
                                 </div>
-                                
-                                <div className="mb-2">
-                                  <div className="text-white/70 text-sm mb-2 font-semibold">Achievements:</div>
-                                  <ul className="list-disc list-inside text-sm text-white/80 space-y-1 pl-1">
-                                    {edu.achievements?.map((achievement, idx) => (
-                                      <li key={idx}>{achievement}</li>
-                                    )) || (
-                                      <>
-                                        <li>Graduated with honors (top 10% of class)</li>
-                                        <li>Research assistant for AI lab projects</li>
-                                      </>
-                                    )}
-                                  </ul>
+                                <div className="text-xs text-white/70 font-mono px-2 py-1 rounded-full bg-white/5 border border-white/10">
+                                  {edu.year}
                                 </div>
                               </div>
-                            </motion.div>
-                            
-                            {/* Hover Instructions */}
-                            <div className="flex items-center justify-center mt-2">
-                              <motion.div 
-                                className="text-xs text-white/40 flex items-center"
+                              
+                              <p className="text-gray-300 text-sm mb-3">{edu.description}</p>
+                              
+                              {/* Expanded Content - Skills & Achievements */}
+                              <motion.div
                                 variants={{
-                                  collapsed: { opacity: 1 },
-                                  expanded: { opacity: 0 }
+                                  collapsed: { opacity: 0.8, height: 0, marginTop: 0, display: "none" },
+                                  expanded: { opacity: 1, height: "auto", marginTop: "0.5rem", display: "block" }
                                 }}
+                                transition={{ duration: 0.3 }}
+                                className="overflow-hidden"
                               >
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                </svg>
-                                Hover for details
+                                <div className="border-t border-white/10 pt-3 mt-2">                                  
+                                  <div className="mb-2">
+                                    <div className="text-white/70 text-xs mb-2 font-semibold">Achievements:</div>
+                                    <ul className="list-disc list-inside text-xs text-white/80 space-y-1 pl-1">
+                                      {edu.achievements?.map((achievement, idx) => (
+                                        <li key={idx}>{achievement}</li>
+                                      )) || (
+                                        <>
+                                          <li>Lorem ipsum dolor sit amet</li>
+                                          <li>Consectetur adipiscing elit</li>
+                                        </>
+                                      )}
+                                    </ul>
+                                  </div>
+                                </div>
                               </motion.div>
+                              
+                              {/* Hover Instructions */}
+                              <div className="flex items-center justify-center mt-2">
+                                <motion.div 
+                                  className="text-xs text-white/40 flex items-center"
+                                  variants={{
+                                    collapsed: { opacity: 1 },
+                                    expanded: { opacity: 0 }
+                                  }}
+                                >
+                                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                  </svg>
+                                  Hover for details
+                                </motion.div>
+                              </div>
                             </div>
-                          </div>
-                        </motion.div>
-                      </GlassCard>
-                    </Tilt>
+                          </motion.div>
+                        </GlassCard>
+                      </Tilt>
+                    </motion.div>
                   </motion.div>
-                </motion.div>
-              ))}
-            </div>
-            
+                ))}
+              </div>
+            </motion.section>
             <motion.div 
               variants={itemVariants} 
               className="mt-8 p-6 bg-black bg-opacity-40 backdrop-blur-sm rounded-xl border border-white border-opacity-5 transform transition-all duration-500 hover:scale-102 hover:border-opacity-10"
@@ -711,7 +821,6 @@ function App() {
                 </div>
               </div>
             </motion.div>
-          </motion.section>
           
           {/* Projects Section */}
           <motion.section 
