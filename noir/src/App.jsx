@@ -823,227 +823,173 @@ function App() {
             </motion.div>
           
           {/* Projects Section */}
-          <motion.section 
-            id="projects"
-            ref={projectsRef}
-            className="my-24"
-            variants={containerVariants}
-            initial="hidden"
-            animate={projectsInView ? "visible" : "hidden"}
-          >
-            <motion.div variants={itemVariants} className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 gap-6">
-              <div className="flex items-center">
-                <motion.div 
-                  className="w-12 h-1 bg-white mr-4"
-                  initial={{ width: 0 }}
-                  whileInView={{ width: 48 }}
-                  transition={{ duration: 0.8 }}
-                ></motion.div>
-                <NoirHeading className="text-3xl md:text-4xl">
-                  <motion.span
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
+          <section 
+  id="projects"
+  ref={projectsRef}
+  className="my-24"
+>
+  <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 gap-6">
+    <div className="flex items-center">
+      <div className="w-12 h-1 bg-white mr-4"></div>
+      <NoirHeading className="text-3xl md:text-4xl">
+        <span>
+          FEATURED PROJECTS
+        </span>
+      </NoirHeading>
+    </div>
+    
+    <div className="flex space-x-3 w-full md:w-auto overflow-x-auto pb-2 md:pb-0 mt-4 md:mt-0">
+      {['all', 'web', 'design', 'mobile', 'ai'].map((tab) => (
+        <button
+          key={tab}
+          className={`px-4 py-2 text-xs rounded-lg transition-colors ${activeTab === tab ? 'bg-white text-black' : 'bg-black text-gray-400 hover:bg-gray-900'}`}
+          onClick={() => setActiveTab(tab)}
+        >
+          {tab.charAt(0).toUpperCase() + tab.slice(1)}
+        </button>
+      ))}
+    </div>
+  </div>
+  
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    {filteredProjects.map((project) => (
+      <Tilt key={project.title} options={{ max: 15, scale: 1.05, speed: 400 }}>
+        <div
+          className="group h-full"
+          onMouseEnter={() => {setIsHovering(true); setHoverItem(`View ${project.title}`)}}
+          onMouseLeave={() => {setIsHovering(false); setHoverItem(null)}}
+        >
+          <GlassCard className="h-full overflow-hidden relative">
+            {/* Project Image Container */}
+            <div className="aspect-video rounded-lg overflow-hidden mb-5 relative">
+              <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent z-0 opacity-60"></div>
+              <div className="absolute inset-0 bg-black bg-opacity-40 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div className="flex flex-col items-center gap-3">
+                  <a 
+                    href={project.demoUrl || "#"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-5 py-2 bg-white text-black rounded-lg font-medium flex items-center space-x-2 transform -translate-y-10 group-hover:translate-y-0 transition-transform duration-500"
                   >
-                    FEATURED PROJECTS
-                  </motion.span>
-                </NoirHeading>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                    </svg>
+                    <span>Live Demo</span>
+                  </a>
+                  
+                  <a 
+                    href={project.githubUrl || "https://github.com/Arhaan-Siddiquee"}
+                    target="_blank"
+                    rel="noopener noreferrer" 
+                    className="px-5 py-2 bg-black bg-opacity-80 border border-white border-opacity-20 text-white rounded-lg font-medium flex items-center space-x-2 transform translate-y-10 group-hover:translate-y-0 transition-transform duration-500"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-github" viewBox="0 0 16 16">
+                      <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                    </svg>
+                    <span>View Code</span>
+                  </a>
+                </div>
+              </div>
+              <img 
+                src={project.image} 
+                alt={project.title} 
+                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 grayscale group-hover:grayscale-0" 
+              />
+              
+              {/* Project Status Badge */}
+              {project.status && (
+                <div className="absolute top-3 right-3 z-20">
+                  <span className={`text-xs px-3 py-1 rounded-full ${
+                    project.status === 'completed' ? 'bg-green-500 bg-opacity-90' : 
+                    project.status === 'in-progress' ? 'bg-yellow-500 bg-opacity-90' : 
+                    'bg-blue-500 bg-opacity-90'
+                  } text-white flex items-center space-x-1`}>
+                    <span className={`w-2 h-2 rounded-full ${
+                      project.status === 'completed' ? 'bg-green-200' : 
+                      project.status === 'in-progress' ? 'bg-yellow-200' : 
+                      'bg-blue-200'
+                    } mr-1`}></span>
+                    <span>{project.status === 'completed' ? 'Completed' : 
+                          project.status === 'in-progress' ? 'In Progress' : 
+                          'Planned'}</span>
+                  </span>
+                </div>
+              )}
+            </div>
+            
+            {/* Project Content */}
+            <div className="px-1">
+              <div className="flex flex-wrap gap-2 mb-3">
+                <span className="text-xs px-3 py-1 rounded-full bg-white bg-opacity-10 text-white inline-block">
+                  {project.category.charAt(0).toUpperCase() + project.category.slice(1)}
+                </span>
+                
+                {project.tags && project.tags.map((tag, idx) => (
+                  <span key={idx} className="text-xs px-3 py-1 rounded-full bg-black bg-opacity-40 border border-white border-opacity-10 text-gray-300 inline-block">
+                    {tag}
+                  </span>
+                ))}
               </div>
               
-              <div className="flex space-x-3 w-full md:w-auto overflow-x-auto pb-2 md:pb-0 mt-4 md:mt-0">
-                {['all', 'web', 'design', 'mobile', 'ai'].map((tab, index) => (
-                  <motion.button
-                    key={tab}
-                    className={`px-4 py-2 text-xs rounded-lg transition-colors ${activeTab === tab ? 'bg-white text-black' : 'bg-black text-gray-400 hover:bg-gray-900'}`}
-                    onClick={() => setActiveTab(tab)}
-                    whileHover={{ y: -2 }}
-                    whileTap={{ y: 0 }}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1 * index, duration: 0.3 }}
-                  >
-                    {tab.charAt(0).toUpperCase() + tab.slice(1)}
-                  </motion.button>
-                ))}
+              <h3 className="text-xl font-bold mb-2 group-hover:text-white transition-colors duration-300">{project.title}</h3>
+              <p className="text-gray-400 mb-4">{project.description}</p>
+              
+              {/* Tech Stack with Icons */}
+              <div className="mb-4">
+                <div className="text-xs text-gray-500 uppercase mb-2 font-medium">Tech Stack</div>
+                <div className="flex flex-wrap gap-2">
+                  {project.techArray ? project.techArray.map((tech, idx) => (
+                    <span key={idx} className="text-xs bg-black bg-opacity-50 text-gray-300 px-2 py-1 rounded flex items-center">
+                      {tech}
+                    </span>
+                  )) : project.tech?.split(',').map((tech, idx) => (
+                    <span key={idx} className="text-xs bg-black bg-opacity-50 text-gray-300 px-2 py-1 rounded flex items-center">
+                      {tech.trim()}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </motion.div>
-            
-            <motion.div 
-              className="grid grid-cols-1 md:grid-cols-2 gap-8"
-              variants={containerVariants}
-            >
-              <AnimatePresence mode="wait">
-                {filteredProjects.map((project, index) => (
-                  <Tilt key={project.title} options={{ max: 15, scale: 1.05, speed: 400 }}>
-                    <motion.div
-                      layout
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 20 }}
-                      transition={{ duration: 0.5, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                      className="group h-full"
-                      onMouseEnter={() => {setIsHovering(true); setHoverItem(`View ${project.title}`)}}
-                      onMouseLeave={() => {setIsHovering(false); setHoverItem(null)}}
-                    >
-                      <GlassCard className="h-full overflow-hidden relative">
-                        {/* Project Image Container */}
-                        <div className="aspect-video rounded-lg overflow-hidden mb-5 relative">
-                          <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent z-0 opacity-60"></div>
-                          <div className="absolute inset-0 bg-black bg-opacity-40 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <motion.div 
-                              className="flex flex-col items-center gap-3"
-                              initial={{ opacity: 0, y: 20 }}
-                              whileInView={{ opacity: 1, y: 0 }}
-                              transition={{ delay: 0.1 }}
-                            >
-                              <motion.a 
-                                href={project.demoUrl || "#"}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="px-5 py-2 bg-white text-black rounded-lg font-medium flex items-center space-x-2 transform -translate-y-10 group-hover:translate-y-0 transition-transform duration-500"
-                                whileHover={{ scale: 1.05, backgroundColor: "#ffffff" }}
-                                whileTap={{ scale: 0.95 }}
-                              >
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                </svg>
-                                <span>Live Demo</span>
-                              </motion.a>
-                              
-                              <motion.a 
-                                href={project.githubUrl || "https://github.com/Arhaan-Siddiquee"}
-                                target="_blank"
-                                rel="noopener noreferrer" 
-                                className="px-5 py-2 bg-black bg-opacity-80 border border-white border-opacity-20 text-white rounded-lg font-medium flex items-center space-x-2 transform translate-y-10 group-hover:translate-y-0 transition-transform duration-500"
-                                whileHover={{ scale: 1.05, borderOpacity: 0.4 }}
-                                whileTap={{ scale: 0.95 }}
-                              >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-github" viewBox="0 0 16 16">
-                                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-                                </svg>
-                                <span>View Code</span>
-                              </motion.a>
-                            </motion.div>
-                          </div>
-                          <img 
-                            src={project.image} 
-                            alt={project.title} 
-                            className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 grayscale group-hover:grayscale-0" 
-                          />
-                          
-                          {/* Project Status Badge */}
-                          {project.status && (
-                            <div className="absolute top-3 right-3 z-20">
-                              <span className={`text-xs px-3 py-1 rounded-full ${
-                                project.status === 'completed' ? 'bg-green-500 bg-opacity-90' : 
-                                project.status === 'in-progress' ? 'bg-yellow-500 bg-opacity-90' : 
-                                'bg-blue-500 bg-opacity-90'
-                              } text-white flex items-center space-x-1`}>
-                                <span className={`w-2 h-2 rounded-full ${
-                                  project.status === 'completed' ? 'bg-green-200' : 
-                                  project.status === 'in-progress' ? 'bg-yellow-200' : 
-                                  'bg-blue-200'
-                                } mr-1`}></span>
-                                <span>{project.status === 'completed' ? 'Completed' : 
-                                      project.status === 'in-progress' ? 'In Progress' : 
-                                      'Planned'}</span>
-                              </span>
-                            </div>
-                          )}
-                        </div>
-                        
-                        {/* Project Content */}
-                        <div className="px-1">
-                          <div className="flex flex-wrap gap-2 mb-3">
-                            <span className="text-xs px-3 py-1 rounded-full bg-white bg-opacity-10 text-white inline-block">
-                              {project.category.charAt(0).toUpperCase() + project.category.slice(1)}
-                            </span>
-                            
-                            {project.tags && project.tags.map((tag, idx) => (
-                              <span key={idx} className="text-xs px-3 py-1 rounded-full bg-black bg-opacity-40 border border-white border-opacity-10 text-gray-300 inline-block">
-                                {tag}
-                              </span>
-                            ))}
-                          </div>
-                          
-                          <h3 className="text-xl font-bold mb-2 group-hover:text-white transition-colors duration-300">{project.title}</h3>
-                          <p className="text-gray-400 mb-4">{project.description}</p>
-                          
-                          {/* Tech Stack with Icons */}
-                          <div className="mb-4">
-                            <div className="text-xs text-gray-500 uppercase mb-2 font-medium">Tech Stack</div>
-                            <div className="flex flex-wrap gap-2">
-                              {project.techArray ? project.techArray.map((tech, idx) => (
-                                <span key={idx} className="text-xs bg-black bg-opacity-50 text-gray-300 px-2 py-1 rounded flex items-center">
-                                  {tech}
-                                </span>
-                              )) : project.tech?.split(',').map((tech, idx) => (
-                                <span key={idx} className="text-xs bg-black bg-opacity-50 text-gray-300 px-2 py-1 rounded flex items-center">
-                                  {tech.trim()}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                          
-                          {/* Expandable Features Section */}
-                          <motion.div
-                            initial="collapsed"
-                            whileHover="expanded"
-                            animate="collapsed"
-                            variants={{
-                              collapsed: { height: 0, opacity: 0, marginTop: 0 },
-                              expanded: { height: "auto", opacity: 1, marginTop: "0.5rem" }
-                            }}
-                            transition={{ duration: 0.3 }}
-                            className="overflow-hidden border-t border-white border-opacity-10 pt-3"
-                          >
-                            <div className="text-xs text-gray-500 uppercase mb-2 font-medium">Key Features</div>
-                            <ul className="text-sm text-gray-300 space-y-1 pl-4 list-disc">
-                              {project.features ? project.features.map((feature, idx) => (
-                                <li key={idx}>{feature}</li>
-                              )) : (
-                                <>
-                                  <li>Responsive design with modern UI/UX principles</li>
-                                  <li>Optimized performance and accessibility</li>
-                                  <li>Integration with third-party APIs</li>
-                                </>
-                              )}
-                            </ul>
-                            
-                            {project.contribution && (
-                              <div className="mt-3">
-                                <div className="text-xs text-gray-500 uppercase mb-2 font-medium">My Contribution</div>
-                                <p className="text-sm text-gray-300">{project.contribution}</p>
-                              </div>
-                            )}
-                          </motion.div>
-                          
-                          {/* Hover Instructions */}
-                          <div className="absolute bottom-3 right-3">
-                            <motion.div
-                              className="text-xs text-white/40 flex items-center"
-                              variants={{
-                                collapsed: { opacity: 1 },
-                                expanded: { opacity: 0 }
-                              }}
-                              initial="collapsed"
-                              whileHover="expanded"
-                            >
-                              <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                              </svg>
-                              Hover for details
-                            </motion.div>
-                          </div>
-                        </div>
-                      </GlassCard>
-                    </motion.div>
-                  </Tilt>
-                ))}
-              </AnimatePresence>
-            </motion.div>
-            
+              
+              {/* Expandable Features Section */}
+              <div className="overflow-hidden border-t border-white border-opacity-10 pt-3">
+                <div className="text-xs text-gray-500 uppercase mb-2 font-medium">Key Features</div>
+                <ul className="text-sm text-gray-300 space-y-1 pl-4 list-disc">
+                  {project.features ? project.features.map((feature, idx) => (
+                    <li key={idx}>{feature}</li>
+                  )) : (
+                    <>
+                      <li>Responsive design with modern UI/UX principles</li>
+                      <li>Optimized performance and accessibility</li>
+                      <li>Integration with third-party APIs</li>
+                    </>
+                  )}
+                </ul>
+                
+                {project.contribution && (
+                  <div className="mt-3">
+                    <div className="text-xs text-gray-500 uppercase mb-2 font-medium">My Contribution</div>
+                    <p className="text-sm text-gray-300">{project.contribution}</p>
+                  </div>
+                )}
+              </div>
+              
+              {/* Hover Instructions */}
+              <div className="absolute bottom-3 right-3">
+                <div className="text-xs text-white/40 flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  Hover for details
+                </div>
+              </div>
+            </div>
+          </GlassCard>
+        </div>
+      </Tilt>
+    ))}
+  </div>
+</section>
             {/* Empty State */}
             {filteredProjects.length === 0 && (
               <motion.div 
@@ -1119,7 +1065,6 @@ function App() {
             >
               Showing {filteredProjects.length} of {projects.length} projects
             </motion.div>
-          </motion.section>
           {/* Skills Section */}
           <motion.section 
             id="skills"
