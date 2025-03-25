@@ -287,7 +287,7 @@ function App() {
     {
       year: "2021 - 2023",
       title: "Intermediate",
-      institution: "D.A.V Public School",
+      institution: "Science D.A.V Public School",
       description: "Specialized in Physics, Chemistry and Mathematics with high distinction"
     },
     {
