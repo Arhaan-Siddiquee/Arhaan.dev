@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { Tilt } from 'react-tilt';
 import { FiMail, FiPhone, FiMapPin, FiGithub, FiTwitter, FiLinkedin, FiDribbble } from 'react-icons/fi';
 import Typewriter from "react-typewriter-effect";
-
+import resumePDF from "./assets/arhaan-resume.pdf";
 
 // Styled components
 const NoirContainer = styled.div`
@@ -287,7 +287,7 @@ function App() {
     {
       year: "2021 - 2023",
       title: "Intermediate",
-      institution: "Science D.A.V Public School",
+      institution: "D.A.V Public School",
       description: "Specialized in Physics, Chemistry and Mathematics with high distinction"
     },
     {
@@ -397,6 +397,7 @@ function App() {
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               onMouseEnter={() => {setIsHovering(true); setHoverItem('Resume')}}
               onMouseLeave={() => {setIsHovering(false); setHoverItem(null)}}
+              onClick={() => window.open(resumePDF, '_blank')}
             >
               Resume
               <span className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-10 transform -translate-x-full hover:translate-x-0 transition-transform duration-300"></span>
@@ -824,32 +825,32 @@ function App() {
           
           {/* Projects Section */}
           <section 
-  id="projects"
-  ref={projectsRef}
-  className="my-24"
->
-  <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 gap-6">
-    <div className="flex items-center">
-      <div className="w-12 h-1 bg-white mr-4"></div>
-      <NoirHeading className="text-3xl md:text-4xl">
-        <span>
-          FEATURED PROJECTS
-        </span>
-      </NoirHeading>
-    </div>
-    
-    <div className="flex space-x-3 w-full md:w-auto overflow-x-auto pb-2 md:pb-0 mt-4 md:mt-0">
-      {['all', 'web', 'design', 'mobile', 'ai'].map((tab) => (
-        <button
-          key={tab}
-          className={`px-4 py-2 text-xs rounded-lg transition-colors ${activeTab === tab ? 'bg-white text-black' : 'bg-black text-gray-400 hover:bg-gray-900'}`}
-          onClick={() => setActiveTab(tab)}
-        >
-          {tab.charAt(0).toUpperCase() + tab.slice(1)}
-        </button>
-      ))}
-    </div>
-  </div>
+            id="projects"
+            ref={projectsRef}
+            className="my-24"
+          >
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 gap-6">
+              <div className="flex items-center">
+                <div className="w-12 h-1 bg-white mr-4"></div>
+                <NoirHeading className="text-3xl md:text-4xl">
+                  <span>
+                    FEATURED PROJECTS
+                  </span>
+                </NoirHeading>
+              </div>
+              
+              <div className="flex space-x-3 w-full md:w-auto overflow-x-auto pb-2 md:pb-0 mt-4 md:mt-0">
+                {['all', 'web', 'design', 'mobile', 'ai'].map((tab) => (
+                  <button
+                    key={tab}
+                    className={`px-4 py-2 text-xs rounded-lg transition-colors ${activeTab === tab ? 'bg-white text-black' : 'bg-black text-gray-400 hover:bg-gray-900'}`}
+                    onClick={() => setActiveTab(tab)}
+                  >
+                    {tab.charAt(0).toUpperCase() + tab.slice(1)}
+                  </button>
+                ))}
+              </div>
+            </div>
   
   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
     {filteredProjects.map((project) => (
@@ -1505,8 +1506,7 @@ function App() {
                 }}
                 transition={{ repeat: Infinity, duration: 5 }}
               >
-                "Don’t count the bugs, make the code count., 
-                Develop like a champion, code like a legend."
+                "Don’t count the bugs, make the code count."
               </motion.p>
               <motion.p 
                 className="mt-4 text-gray-400"
@@ -1594,85 +1594,103 @@ function App() {
                   <h3 className="text-xl font-bold mb-6">Contact Information</h3>
                   
                   <div className="space-y-6">
-                    {[
-                      { icon: <FiMail className="w-5 h-5" />, title: "Email", value: "hello@arhaan.dev" },
-                      { icon: <FiPhone className="w-5 h-5" />, title: "Phone", value: "+91 9876543210" },
-                      { icon: <FiMapPin className="w-5 h-5" />, title: "Location", value: "Chennai, India" }
-                    ].map((contact, index) => (
-                      <motion.div 
-                        key={index}
-                        className="flex items-start group"
-                        whileHover={{ x: 5 }}
-                      >
-                        <div className="w-12 h-12 rounded-lg bg-white bg-opacity-10 flex items-center justify-center mr-4 group-hover:bg-white group-hover:text-black transition-colors duration-300">
-                          {contact.icon}
-                        </div>
-                        <div>
-                          <div className="text-sm text-gray-400 mb-1">{contact.title}</div>
-                          <div className="font-medium">{contact.value}</div>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
+                        {[
+                          { 
+                            icon: <FiMail className="w-5 h-5" />, 
+                            title: "Email", 
+                            value: "siddiqueearhaan@gmail.com",
+                            link: "mailto:siddiqueearhaan@gmail.com" 
+                          },
+                          { 
+                            icon: <FiPhone className="w-5 h-5" />, 
+                            title: "Phone", 
+                            value: "+91 7070000629" 
+                          },
+                          { 
+                            icon: <FiMapPin className="w-5 h-5" />, 
+                            title: "Location", 
+                            value: "SRM University, Chennai, India",
+                            link: "https://maps.app.goo.gl/WDypdou2D6hSzKhY6"
+                          }
+                        ].map((contact, index) => (
+                          <motion.div 
+                            key={index}
+                            className="flex items-start group"
+                            whileHover={{ x: 5 }}
+                          >
+                            <div className="w-12 h-12 rounded-lg bg-white bg-opacity-10 flex items-center justify-center mr-4 group-hover:bg-white group-hover:text-black transition-colors duration-300">
+                              {contact.icon}
+                            </div>
+                            <div>
+                              <div className="text-sm text-gray-400 mb-1">{contact.title}</div>
+                              {contact.link ? (
+                                <a 
+                                  href={contact.link} 
+                                  className="font-medium hover:text-blue-400 transition-colors duration-300"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  {contact.value}
+                                </a>
+                              ) : (
+                                <div className="font-medium">{contact.value}</div>
+                              )}
+                            </div>
+                          </motion.div>
+                        ))}
+                      </div>
                   
-                  <div className="mt-8">
-                    <h4 className="text-sm font-semibold text-gray-400 mb-4">FOLLOW ME</h4>
-                    <div className="flex space-x-4">
-                      {[<FiTwitter />, <FiGithub />, <FiLinkedin />, <FiDribbble />].map((icon, index) => (
-                        <motion.a 
-                          key={index}
-                          href="#" 
-                          className="w-10 h-10 rounded-full bg-white bg-opacity-10 text-white flex items-center justify-center hover:bg-white hover:text-black transition-colors duration-300"
-                          whileHover={{ y: -5 }}
-                          whileTap={{ y: 0 }}
-                        >
-                          {icon}
-                        </motion.a>
-                      ))}
-                    </div>
-                  </div>
+                  
                 </motion.div>
                 
                 <motion.div variants={itemVariants}>
                   <h3 className="text-xl font-bold mb-6">Send Me a Message</h3>
                   
-                  <form className="space-y-5">
-                    <div className="space-y-2">
-                      <label className="text-sm text-gray-400">Your Name</label>
-                      <input 
-                        type="text" 
-                        className="w-full px-4 py-3 bg-black bg-opacity-50 rounded-lg border border-white border-opacity-10 focus:outline-none focus:border-opacity-30 transition-colors duration-300"
-                        placeholder="What's your name?"
-                      />
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <label className="text-sm text-gray-400">Your Email</label>
-                      <input 
-                        type="email" 
-                        className="w-full px-4 py-3 bg-black bg-opacity-50 rounded-lg border border-white border-opacity-10 focus:outline-none focus:border-opacity-30 transition-colors duration-300"
-                        placeholder="What's your email?"
-                      />
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <label className="text-sm text-gray-400">Your Message</label>
-                      <textarea 
-                        className="w-full px-4 py-3 bg-black bg-opacity-50 rounded-lg border border-white border-opacity-10 focus:outline-none focus:border-opacity-30 transition-colors duration-300 min-h-[120px]"
-                        placeholder="What would you like to say?"
-                      ></textarea>
-                    </div>
-                    
-                    <motion.button 
-                      className="w-full py-3 bg-white text-black font-medium rounded-lg relative overflow-hidden group"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      <span className="relative z-10">SEND MESSAGE</span>
-                      <span className="absolute inset-0 bg-black bg-opacity-10 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
-                    </motion.button>
-                  </form>
-                </motion.div>
+                  <form 
+                      className="space-y-5"
+                      action="https://formspree.io/f/mzzeagbj"
+                      method="POST"
+                    >                     
+                      <div className="space-y-2">                       
+                        <label className="text-sm text-gray-400">Your Name</label>                       
+                        <input                          
+                          type="text"
+                          name="name"                          
+                          className="w-full px-4 py-3 bg-black bg-opacity-50 rounded-lg border border-white border-opacity-10 focus:outline-none focus:border-opacity-30 transition-colors duration-300"                         
+                          placeholder="What's your name?"                       
+                        />                     
+                      </div>                                          
+                      
+                      <div className="space-y-2">                       
+                        <label className="text-sm text-gray-400">Your Email</label>                       
+                        <input                          
+                          type="email"
+                          name="email"                          
+                          className="w-full px-4 py-3 bg-black bg-opacity-50 rounded-lg border border-white border-opacity-10 focus:outline-none focus:border-opacity-30 transition-colors duration-300"                         
+                          placeholder="What's your email?"                       
+                        />                     
+                      </div>                                          
+                      
+                      <div className="space-y-2">                       
+                        <label className="text-sm text-gray-400">Your Message</label>                       
+                        <textarea                          
+                          name="message"
+                          className="w-full px-4 py-3 bg-black bg-opacity-50 rounded-lg border border-white border-opacity-10 focus:outline-none focus:border-opacity-30 transition-colors duration-300 min-h-[120px]"                         
+                          placeholder="What would you like to say?"                       
+                        ></textarea>                     
+                      </div>                                          
+                      
+                      <motion.button                        
+                        className="w-full py-3 bg-white text-black font-medium rounded-lg relative overflow-hidden group"
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        type="submit"
+                      >                       
+                        <span className="relative z-10">SEND MESSAGE</span>                       
+                        <span className="absolute inset-0 bg-black bg-opacity-10 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>                     
+                      </motion.button>                   
+                    </form>
+                                    </motion.div>
               </div>
             </GlassCard>
           </motion.section>
