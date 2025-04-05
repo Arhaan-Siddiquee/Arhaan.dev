@@ -8,6 +8,10 @@ import Typewriter from "react-typewriter-effect";
 import resumePDF from "./assets/arhaan-resume.pdf";
 import LOR from "./assets/LOR.pdf";
 import NiramayaCC from "./assets/NiramayaCC.pdf";
+import NiramayaLg from "./assets/NiramayaLg.jpeg";
+import Codenexlg from "./assets/codenexlg.png";
+import Founderslg from "./assets/Founderslg.jpeg";
+
 // Styled components
 const NoirContainer = styled.div`
   background-color: #0a0a0a;
@@ -93,7 +97,8 @@ const workExperience = [
     period: "Sep 2024 - Mar 2025",
     description: "Contributed to developing responsive healthcare web interfaces using React.js and TailwindCSS, integrated RESTful APIs, and collaborated with the tech team to enhance UI/UX and backend efficiency.",
     recommendationLetter: LOR,
-    certificate: NiramayaCC
+    certificate: NiramayaCC,
+    logo: NiramayaLg
   }
 ];
 
@@ -102,13 +107,15 @@ const collegeClubs = [
     club: "CodeNex Club SRM",
     role: "Technical Team Member",
     period: "Sep 2024 - Present",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+    logo: Codenexlg
   },
   {
     club: "Founders Club",
     role: "Creative Associate Lead",
     period: "Oct 2023 - Present",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore."
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.",
+    logo: Founderslg
   },
 ];
 
@@ -285,19 +292,34 @@ function App() {
       year: "2019 - 2021",
       title: "Matriculation",
       institution: "D.A.V Public Schools",
-      description: "Completed with 91% marks in Science stream"
+      description: "Completed with 91% marks in Science stream",
+          achievements: [
+      "Published research paper on neural networks in IEEE conference",
+      "Awarded departmental excellence scholarship for academic merit",
+      "Completed capstone project with Google research team"
+    ] 
     },
     {
       year: "2021 - 2023",
       title: "Intermediate",
       institution: "D.A.V Public School",
-      description: "Specialized in Physics, Chemistry and Mathematics with high distinction"
+      description: "Specialized in Physics, Chemistry and Mathematics with high distinction",
+      achievements: [
+        "Published research paper on neural networks in IEEE conference",
+        "Awarded departmental excellence scholarship for academic merit",
+        "Completed capstone project with Google research team"
+      ]
     },
     {
       year: "2023 - 2027",
       title: "Bachelor's Degree",
       institution: "B.Tech, SRM University",
-      description: "Computer Science and Engineering, specializing in AI & Machine Learning"
+      description: "Computer Science and Engineering, specializing in AI & Machine Learning",
+      achievements: [
+        "Published research paper on neural networks in IEEE conference",
+        "Awarded departmental excellence scholarship for academic merit",
+        "Completed capstone project with Google research team"
+      ]
     },
   ];
 
@@ -556,93 +578,103 @@ function App() {
             >
               {/* Work Experience Section */}
               <motion.div variants={itemVariants} className="flex items-center mb-12">
-  <div className="w-12 h-1 bg-white mr-4"></div>
-  <NoirHeading className="text-3xl md:text-4xl">WORK EXPERIENCE</NoirHeading>
-</motion.div>
-              
-<div className="space-y-6 mb-16">
-  {/* Work Experience Cards */}
-  {workExperience.map((work, index) => (
-    <motion.div 
-      key={index} 
-      className="relative"
-      variants={itemVariants}
-      custom={index}
-    >
-      <GlassCard 
-        className="overflow-hidden"
-        whileHover={{ 
-          scale: 1.02, 
-          boxShadow: "0 0 15px rgba(255,255,255,0.08)",
-          transition: { duration: 0.3 }  
-        }}
-      >
-        <div className="p-5">
-          <div className="flex items-start gap-4">
-            <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center overflow-hidden">
-              {/* Company Logo Placeholder */}
-              <div className="w-8 h-8 bg-white/20 rounded-full"></div>
-            </div>
-            
-            <div className="flex-1">
-              <div className="flex justify-between items-start">
-                <div>
-                  <div className="font-bold text-white text-lg mb-1">{work.company}</div>
-                  <div className="text-gray-400 text-sm">{work.position}</div>
-                </div>
-                <div className="text-xs text-white/70 font-mono px-2 py-1 rounded-full bg-white/5 border border-white/10">
-                  {work.period}
-                </div>
+                <div className="w-12 h-1 bg-white mr-4"></div>
+                <NoirHeading className="text-3xl md:text-4xl">WORK EXPERIENCE</NoirHeading>
+              </motion.div>
+                            
+              <div className="space-y-6 mb-16">
+                {/* Work Experience Cards */}
+                {workExperience.map((work, index) => (
+                  <motion.div 
+                    key={index} 
+                    className="relative"
+                    variants={itemVariants}
+                    custom={index}
+                  >
+                    <GlassCard 
+                      className="overflow-hidden"
+                      whileHover={{ 
+                        scale: 1.02, 
+                        boxShadow: "0 0 15px rgba(255,255,255,0.08)",
+                        transition: { duration: 0.3 }  
+                      }}
+                    >
+                      <div className="p-5">
+                        <div className="flex items-start gap-4">
+                        <div className="w-10 h-10 rounded-full bg-white/10 overflow-hidden">
+                          {/* Company Logo */}
+                          {work.logo ? (
+                            <div className="w-full h-full bg-white flex items-center justify-center">
+                              <img 
+                                src={work.logo} 
+                                alt={`${work.company} logo`} 
+                                className="w-full h-full object-cover"
+                              />
+                            </div>
+                          ) : (
+                            <div className="w-full h-full bg-white/20 rounded-full"></div>
+                          )}
+                        </div>
+                          
+                          <div className="flex-1">
+                            <div className="flex justify-between items-start">
+                              <div>
+                                <div className="font-bold text-white text-lg mb-1">{work.company}</div>
+                                <div className="text-gray-400 text-sm">{work.position}</div>
+                              </div>
+                              <div className="text-xs text-white/70 font-mono px-2 py-1 rounded-full bg-white/5 border border-white/10">
+                                {work.period}
+                              </div>
+                            </div>
+                            
+                            <div className="text-xs text-white/60 mt-1 mb-2">{work.type}</div>
+                            <p className="text-gray-300 text-sm">{work.description}</p>
+                            
+                            {/* Document Links - Horizontal Layout */}
+                            <div className="mt-3">
+                              <div className="flex items-center">
+                                <span className="text-xs text-white/50 mr-2">View Documents:</span>
+                                <div className="flex gap-3">
+                                  {work.offerLetter && (
+                                    <a 
+                                      href={work.offerLetter} 
+                                      className="text-xs text-white/80 hover:text-white transition duration-150 bg-white/5 px-3 py-1 rounded-full border border-white/10 hover:bg-white/10"
+                                      target="_blank" 
+                                      rel="noopener noreferrer"
+                                    >
+                                      Offer Letter
+                                    </a>
+                                  )}
+                                  {work.recommendationLetter && (
+                                    <a 
+                                      href={work.recommendationLetter} 
+                                      className="text-xs text-white/80 hover:text-white transition duration-150 bg-white/5 px-3 py-1 rounded-full border border-white/10 hover:bg-white/10"
+                                      target="_blank" 
+                                      rel="noopener noreferrer"
+                                    >
+                                      Letter of Recommendation
+                                    </a>
+                                  )}
+                                  {work.certificate && (
+                                    <a 
+                                      href={work.certificate} 
+                                      className="text-xs text-white/80 hover:text-white transition duration-150 bg-white/5 px-3 py-1 rounded-full border border-white/10 hover:bg-white/10"
+                                      target="_blank" 
+                                      rel="noopener noreferrer"
+                                    >
+                                      Certificate
+                                    </a>
+                                  )}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </GlassCard>
+                  </motion.div>
+                ))}
               </div>
-              
-              <div className="text-xs text-white/60 mt-1 mb-2">{work.type}</div>
-              <p className="text-gray-300 text-sm">{work.description}</p>
-              
-              {/* Document Links - Horizontal Layout */}
-              <div className="mt-3">
-                <div className="flex items-center">
-                  <span className="text-xs text-white/50 mr-2">View Documents:</span>
-                  <div className="flex gap-3">
-                    {work.offerLetter && (
-                      <a 
-                        href={work.offerLetter} 
-                        className="text-xs text-white/80 hover:text-white transition duration-150 bg-white/5 px-3 py-1 rounded-full border border-white/10 hover:bg-white/10"
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                      >
-                        Offer Letter
-                      </a>
-                    )}
-                    {work.recommendationLetter && (
-                      <a 
-                        href={work.recommendationLetter} 
-                        className="text-xs text-white/80 hover:text-white transition duration-150 bg-white/5 px-3 py-1 rounded-full border border-white/10 hover:bg-white/10"
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                      >
-                        Letter of Recommendation
-                      </a>
-                    )}
-                    {work.certificate && (
-                      <a 
-                        href={work.certificate} 
-                        className="text-xs text-white/80 hover:text-white transition duration-150 bg-white/5 px-3 py-1 rounded-full border border-white/10 hover:bg-white/10"
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                      >
-                        Certificate
-                      </a>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </GlassCard>
-    </motion.div>
-  ))}
-</div>
 
               {/* College Clubs Section */}
               <motion.div variants={itemVariants} className="flex items-center mb-12">
@@ -669,10 +701,18 @@ function App() {
                     >
                       <div className="p-5">
                         <div className="flex items-start gap-4">
-                          <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center overflow-hidden">
-                            {/* Club Logo Placeholder */}
+                        <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center overflow-hidden">
+                          {/* Club Logo */}
+                          {club.logo ? (
+                            <img 
+                              src={club.logo} 
+                              alt={`${club.club} Logo`} 
+                              className="w-full h-full object-cover"
+                            />
+                          ) : (
                             <div className="w-8 h-8 bg-white/20 rounded-full"></div>
-                          </div>
+                          )}
+                        </div>
                           
                           <div className="flex-1">
                             <div className="flex justify-between items-start">
@@ -781,12 +821,7 @@ function App() {
                                     <ul className="list-disc list-inside text-xs text-white/80 space-y-1 pl-1">
                                       {edu.achievements?.map((achievement, idx) => (
                                         <li key={idx}>{achievement}</li>
-                                      )) || (
-                                        <>
-                                          <li>Lorem ipsum dolor sit amet</li>
-                                          <li>Consectetur adipiscing elit</li>
-                                        </>
-                                      )}
+                                      ))}
                                     </ul>
                                   </div>
                                 </div>
@@ -1554,7 +1589,7 @@ function App() {
                 className="mt-4 text-gray-400"
                 whileHover={{ color: "#ffffff" }}
               >
-                — Steve Jobs
+                — Me
               </motion.p>
             </motion.div>
           </motion.section>
@@ -1577,14 +1612,14 @@ function App() {
             >
               {[
                 {
-                  text: "Arhaan delivered an exceptional website that perfectly captured our brand essence. His attention to detail and creative approach exceeded our expectations.",
-                  author: "Samantha K.",
-                  role: "Creative Director, DesignLabs",
-                  image: "/api/placeholder/100/100"
+                  text: " Arhaan possesses a remarkable ability to blend design and development, ensuring visually appealing and user-friendly interfaces while maintaining robust functionality. His adaptability and eagerness to learn allowed him to excel in both roles, contributing significantly to our projects. Beyond his technical skills, Arhaan exhibited outstanding problem-solving abilities, teamwork, and professionalism. He consistently approached challenges with a positive mindset and a willingness to go the extra mile, making him a valued member of our team.",
+                  author: "Arnav Madan",
+                  role: "Co-Founder, Niramaya",
+                  image: NiramayaLg
                 },
                 {
-                  text: "Working with Arhaan was a game-changer for our startup. His technical expertise combined with his eye for design resulted in a platform that our users love.",
-                  author: "Michael Chen",
+                  text: "Working with Arhaan was truly a game-changer for our startup. From the very beginning, his deep technical expertise was evident as he seamlessly integrated innovative solutions into our platform. What really stood out, though, was his unique ability to balance that technical know-how with a keen eye for design. His design sensibility ensured that the user experience wasn’t just functional but also intuitive and visually appealing. Thanks to Arhaan’s contributions, we were able to create a platform that not only meets our users’ needs but also exceeds their expectations. ",
+                  author: "",
                   role: "Founder, TechNova",
                   image: "/api/placeholder/100/100"
                 }
