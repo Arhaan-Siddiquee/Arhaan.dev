@@ -6,7 +6,8 @@ import { Tilt } from 'react-tilt';
 import { FiMail, FiPhone, FiMapPin, FiGithub, FiTwitter, FiLinkedin, FiDribbble } from 'react-icons/fi';
 import Typewriter from "react-typewriter-effect";
 import resumePDF from "./assets/arhaan-resume.pdf";
-
+import LOR from "./assets/LOR.pdf";
+import NiramayaCC from "./assets/NiramayaCC.pdf";
 // Styled components
 const NoirContainer = styled.div`
   background-color: #0a0a0a;
@@ -90,7 +91,9 @@ const workExperience = [
     position: "Frontend Web Developer Intern",
     type: "On-Site",
     period: "Sep 2024 - Mar 2025",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt."
+    description: "Contributed to developing responsive healthcare web interfaces using React.js and TailwindCSS, integrated RESTful APIs, and collaborated with the tech team to enhance UI/UX and backend efficiency.",
+    recommendationLetter: LOR,
+    certificate: NiramayaCC
   }
 ];
 
@@ -162,7 +165,7 @@ function App() {
   // Project data with noir theme
   const projects = [
     {
-      title: "Midnight Commerce",
+      title: "SikshaSoladu.AI",
       category: "web",
       tech: "React, Node.js, MongoDB",
       description: "A sleek e-commerce platform with dark mode and minimalist UI",
@@ -553,54 +556,100 @@ function App() {
             >
               {/* Work Experience Section */}
               <motion.div variants={itemVariants} className="flex items-center mb-12">
-                <div className="w-12 h-1 bg-white mr-4"></div>
-                <NoirHeading className="text-3xl md:text-4xl">WORK EXPERIENCE</NoirHeading>
-              </motion.div>
+  <div className="w-12 h-1 bg-white mr-4"></div>
+  <NoirHeading className="text-3xl md:text-4xl">WORK EXPERIENCE</NoirHeading>
+</motion.div>
               
-              <div className="space-y-6 mb-16">
-                {/* Work Experience Cards */}
-                {workExperience.map((work, index) => (
-                  <motion.div 
-                    key={index} 
-                    className="relative"
-                    variants={itemVariants}
-                    custom={index}
-                  >
-                    <GlassCard 
-                      className="overflow-hidden"
-                      whileHover={{ 
-                        scale: 1.02, 
-                        boxShadow: "0 0 15px rgba(255,255,255,0.08)",
-                        transition: { duration: 0.3 }  
-                      }}
-                    >
-                      <div className="p-5">
-                        <div className="flex items-start gap-4">
-                          <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center overflow-hidden">
-                            {/* Company Logo Placeholder */}
-                            <div className="w-8 h-8 bg-white/20 rounded-full"></div>
-                          </div>
-                          
-                          <div className="flex-1">
-                            <div className="flex justify-between items-start">
-                              <div>
-                                <div className="font-bold text-white text-lg mb-1">{work.company}</div>
-                                <div className="text-gray-400 text-sm">{work.position}</div>
-                              </div>
-                              <div className="text-xs text-white/70 font-mono px-2 py-1 rounded-full bg-white/5 border border-white/10">
-                                {work.period}
-                              </div>
-                            </div>
-                            
-                            <div className="text-xs text-white/60 mt-1 mb-2">{work.type}</div>
-                            <p className="text-gray-300 text-sm">{work.description}</p>
-                          </div>
-                        </div>
-                      </div>
-                    </GlassCard>
-                  </motion.div>
-                ))}
+<div className="space-y-6 mb-16">
+  {/* Work Experience Cards */}
+  {workExperience.map((work, index) => (
+    <motion.div 
+      key={index} 
+      className="relative"
+      variants={itemVariants}
+      custom={index}
+    >
+      <GlassCard 
+        className="overflow-hidden"
+        whileHover={{ 
+          scale: 1.02, 
+          boxShadow: "0 0 15px rgba(255,255,255,0.08)",
+          transition: { duration: 0.3 }  
+        }}
+      >
+        <div className="p-5">
+          <div className="flex items-start gap-4">
+            <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center overflow-hidden">
+              {/* Company Logo Placeholder */}
+              <div className="w-8 h-8 bg-white/20 rounded-full"></div>
+            </div>
+            
+            <div className="flex-1">
+              <div className="flex justify-between items-start">
+                <div>
+                  <div className="font-bold text-white text-lg mb-1">{work.company}</div>
+                  <div className="text-gray-400 text-sm">{work.position}</div>
+                </div>
+                <div className="text-xs text-white/70 font-mono px-2 py-1 rounded-full bg-white/5 border border-white/10">
+                  {work.period}
+                </div>
               </div>
+              
+              <div className="text-xs text-white/60 mt-1 mb-2">{work.type}</div>
+              <p className="text-gray-300 text-sm">{work.description}</p>
+              
+              {/* Document Links - Added Section */}
+              <div className="relative group mt-3">
+                <button className="text-xs text-white/50 hover:text-white/90 flex items-center gap-1 transition duration-300">
+                  <span>View Documents</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                
+                {/* Dropdown content - hidden by default, shown on hover */}
+                <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-black/80 border border-white/10 invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-300 z-10">
+                  <div className="py-1">
+                    {work.offerLetter && (
+                      <a 
+                        href={work.offerLetter} 
+                        className="block px-4 py-2 text-sm text-white/80 hover:bg-white/10 transition duration-150"
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                      >
+                        Offer Letter
+                      </a>
+                    )}
+                    {work.recommendationLetter && (
+                      <a 
+                        href={work.recommendationLetter} 
+                        className="block px-4 py-2 text-sm text-white/80 hover:bg-white/10 transition duration-150"
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                      >
+                        Letter of Recommendation
+                      </a>
+                    )}
+                    {work.certificate && (
+                      <a 
+                        href={work.certificate} 
+                        className="block px-4 py-2 text-sm text-white/80 hover:bg-white/10 transition duration-150"
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                      >
+                        Certificate
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </GlassCard>
+    </motion.div>
+  ))}
+</div>
 
               {/* College Clubs Section */}
               <motion.div variants={itemVariants} className="flex items-center mb-12">
