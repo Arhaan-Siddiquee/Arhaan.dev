@@ -598,22 +598,15 @@ function App() {
               <div className="text-xs text-white/60 mt-1 mb-2">{work.type}</div>
               <p className="text-gray-300 text-sm">{work.description}</p>
               
-              {/* Document Links - Added Section */}
-              <div className="relative group mt-3">
-                <button className="text-xs text-white/50 hover:text-white/90 flex items-center gap-1 transition duration-300">
-                  <span>View Documents</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-                
-                {/* Dropdown content - hidden by default, shown on hover */}
-                <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-black/80 border border-white/10 invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-300 z-10">
-                  <div className="py-1">
+              {/* Document Links - Horizontal Layout */}
+              <div className="mt-3">
+                <div className="flex items-center">
+                  <span className="text-xs text-white/50 mr-2">View Documents:</span>
+                  <div className="flex gap-3">
                     {work.offerLetter && (
                       <a 
                         href={work.offerLetter} 
-                        className="block px-4 py-2 text-sm text-white/80 hover:bg-white/10 transition duration-150"
+                        className="text-xs text-white/80 hover:text-white transition duration-150 bg-white/5 px-3 py-1 rounded-full border border-white/10 hover:bg-white/10"
                         target="_blank" 
                         rel="noopener noreferrer"
                       >
@@ -623,7 +616,7 @@ function App() {
                     {work.recommendationLetter && (
                       <a 
                         href={work.recommendationLetter} 
-                        className="block px-4 py-2 text-sm text-white/80 hover:bg-white/10 transition duration-150"
+                        className="text-xs text-white/80 hover:text-white transition duration-150 bg-white/5 px-3 py-1 rounded-full border border-white/10 hover:bg-white/10"
                         target="_blank" 
                         rel="noopener noreferrer"
                       >
@@ -633,7 +626,7 @@ function App() {
                     {work.certificate && (
                       <a 
                         href={work.certificate} 
-                        className="block px-4 py-2 text-sm text-white/80 hover:bg-white/10 transition duration-150"
+                        className="text-xs text-white/80 hover:text-white transition duration-150 bg-white/5 px-3 py-1 rounded-full border border-white/10 hover:bg-white/10"
                         target="_blank" 
                         rel="noopener noreferrer"
                       >
