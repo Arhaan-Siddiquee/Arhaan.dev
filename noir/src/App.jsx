@@ -11,6 +11,11 @@ import NiramayaCC from "./assets/NiramayaCC.pdf";
 import NiramayaLg from "./assets/NiramayaLg.jpeg";
 import Codenexlg from "./assets/codenexlg.png";
 import Founderslg from "./assets/Founderslg.jpeg";
+import SSA from "./assets/SSA.gif";
+import xenigma from "./assets/xenigma.gif";
+import xcode from "./assets/xcode.gif";
+import fitflow from "./assets/fitflow.png";
+import ME from "./assets/me.png";
 
 // Styled components
 const NoirContainer = styled.div`
@@ -107,14 +112,14 @@ const collegeClubs = [
     club: "CodeNex Club SRM",
     role: "Technical Team Member",
     period: "Sep 2024 - Present",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+    description: "Contributed to multiple club projects as a Web Developer and UI/UX designer by building responsive frontends and crafting clean, user-friendly interfaces that aligned with the team’s tech goals.",
     logo: Codenexlg
   },
   {
     club: "Founders Club",
     role: "Creative Associate Lead",
     period: "Oct 2023 - Present",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.",
+    description: "Led the creative direction for various startup ideas by designing brand identities, product UI mockups, and impactful visuals that elevated the club’s presence and storytelling.",
     logo: Founderslg
   },
 ];
@@ -172,32 +177,68 @@ function App() {
   // Project data with noir theme
   const projects = [
     {
-      title: "SikshaSoladu.AI",
+      title: "ShikshaSoladu.AI",
       category: "web",
-      tech: "React, Node.js, MongoDB",
-      description: "A sleek e-commerce platform with dark mode and minimalist UI",
-      image: "/api/placeholder/500/300"
+      tech: "ReactJs, Tf.js, Mediapipe, Peerjs",
+      description: "A personalized education technology designed for Deaf and Blind learners, making education available to all.",
+      features: [
+        "Inclusive Learning for Disabled Students – Tailored education tools for blind, deaf, and physically challenged students.",
+        "Multi-Mode Interaction – Features like text-to-speech, sign language videos, and voice recognition for accessibility.",
+        "Color & UI Adaptability – Dyslexia-friendly fonts, color blindness modes, and simple UI design.",
+        "Course Content Customization – Adaptive learning paths with quizzes and assignments based on user needs."
+      ],
+      status: "completed",
+      demoUrl: "https://sikhshasoladuai.vercel.app/",
+      githubUrl: "https://github.com/Arhaan-Siddiquee/ShikshaSoladuAI",
+      image: SSA
     },
     {
-      title: "Noir Portfolio",
-      category: "design",
-      tech: "React, Styled Components",
-      description: "A sophisticated portfolio with film noir aesthetics",
-      image: "/api/placeholder/500/300"
-    },
-    {
-      title: "Shadow Weather",
-      category: "mobile",
-      tech: "JavaScript, Weather API",
-      description: "Weather app with elegant dark interface and smooth transitions",
-      image: "/api/placeholder/500/300"
-    },
-    {
-      title: "Monochrome Tasks",
+      title: "Enigma",
       category: "web",
-      tech: "React, Firebase",
-      description: "Task management app with contrasting black and white design",
-      image: "/api/placeholder/500/300"
+      tech: "Nextjs, Tf.js, TypeScript, CodeBlocks",
+      description: "A real-time collaborative design platform built for modern teams, with powerful tools and open-source flexibility.",
+      features: [
+        "Real-Time Collaborative Design – Enables seamless teamwork on UI/UX designs with live multi-user editing and instant updates.",
+        "Intuitive Interface & Powerful Tools – Comes with a clean workspace, vector editing, component system, and design libraries for professional-level design.",
+        "Cross-Platform Access – Accessible from anywhere via browser, ensuring smooth workflows across devices and teams.",
+        "Open Source & Developer-Friendly – Built with transparency and extendability in mind, allowing the community to contribute and customize features."
+      ],
+      status: "completed",
+      demoUrl: "https://test-enigma-nine.vercel.app/",
+      githubUrl: "https://github.com/Arhaan-Siddiquee/Enigma",
+      image: xenigma
+    },
+    {
+      title: "10xCoders",
+      category: "web",
+      tech: "ReactJs, GeminiAPI, PeerJs",
+      status: "completed",
+      description: "An all-in-one tech learning hub offering curated roadmaps, projects, and an AI assistant to supercharge your coding journey.",
+      features: [
+        "Tech Learning Hub – One-stop platform offering resources, curated roadmaps, and project ideas for multiple tech domains.",
+        "AI-Powered Chatbot – Built-in assistant to answer coding doubts and guide users through learning paths.",
+        "Community Integration – Access to community channels, coding groups, and events to network and learn together.",
+        "Gamified Experience – Progress levels, streaks, and rewards to keep users engaged and motivated."
+      ],
+      demoUrl: "https://10x-coders.vercel.app/",
+      githubUrl: "https://github.com/Arhaan-Siddiquee/10xCoders",
+      image: xcode
+    },
+    {
+      title: "FitFlow",
+      category: "web",
+      tech: "ReactJs, Tenserflow, Mediapipe, Trigonometry-3",
+      description: "An AI-driven fitness app with video posture guidance, smart rep counting, and personalized workout plans.",
+      image: fitflow,
+      status: "completed",
+      features: [
+        "AI-Powered Fitness Planner – Customizes workout routines based on your fitness goals (fat loss, strength, etc.) using intelligent algorithms.",
+        "Video AI Exercise Assistant – Offers real-time posture guidance and form correction using your device’s camera.",
+        "Diet & Wellness Tips – Includes basic nutrition guidelines and mindfulness suggestions to complement workouts.",
+        "Progress & Wellness Dashboard – Tracks workouts, provides nutrition tips, and visualizes progress through interactive charts and streaks."
+      ],
+      demoUrl: "https://fitflow-excercise.vercel.app/",
+      githubUrl: "https://github.com/Arhaan-Siddiquee/fitflow-excercise"
     }
   ];
   
@@ -206,11 +247,11 @@ function App() {
     { name: "React.js", level: 90, category: "frontend" },
     { name: "JavaScript", level: 85, category: "frontend" },
     { name: "Styled Components", level: 95, category: "frontend" },
-    { name: "TypeScript", level: 80, category: "frontend" },
-    { name: "Node.js", level: 75, category: "backend" },
+    { name: "TypeScript", level: 70, category: "frontend" },
+    { name: "Node.js", level: 65, category: "backend" },
     { name: "UI/UX Design", level: 85, category: "design" },
-    { name: "Figma", level: 80, category: "design" },
-    { name: "GraphQL", level: 70, category: "backend" }
+    { name: "Figma", level: 95, category: "design" },
+    { name: "GraphQL", level: 50, category: "backend" }
   ];
   
   // Handle custom cursor
@@ -292,11 +333,10 @@ function App() {
       year: "2019 - 2021",
       title: "Matriculation",
       institution: "D.A.V Public Schools",
-      description: "Completed with 91% marks in Science stream",
+      description: "Completed with Science stream",
           achievements: [
-      "Published research paper on neural networks in IEEE conference",
-      "Awarded departmental excellence scholarship for academic merit",
-      "Completed capstone project with Google research team"
+      "Represented school in zonal-level athletics and participated in inter-school football tournaments, showcasing both academic and athletic balance.",
+      "Scored 91% overall, consistently ranked among the top 5 performers in class",
     ] 
     },
     {
@@ -305,9 +345,7 @@ function App() {
       institution: "D.A.V Public School",
       description: "Specialized in Physics, Chemistry and Mathematics with high distinction",
       achievements: [
-        "Published research paper on neural networks in IEEE conference",
-        "Awarded departmental excellence scholarship for academic merit",
-        "Completed capstone project with Google research team"
+        "Captained the school’s Volleyball Team, leading them to 1st place in the State-Level School Sports Meet."
       ]
     },
     {
@@ -316,9 +354,9 @@ function App() {
       institution: "B.Tech, SRM University",
       description: "Computer Science and Engineering, specializing in AI & Machine Learning",
       achievements: [
-        "Published research paper on neural networks in IEEE conference",
-        "Awarded departmental excellence scholarship for academic merit",
-        "Completed capstone project with Google research team"
+        "Contributed to 10+ web projects, led hackathon teams to top-10 finishes, and built   inclusive, AI-powered platforms.",
+        "Built a strong tech stack, while balancing club leadership, academics, and client work.",
+        "Ranked Top 10 out of 155+ teams in a national-level hackathon and selected for the Red Bull International Fastrack finals."
       ]
     },
   ];
@@ -451,7 +489,7 @@ function App() {
                 >
                   <div className="absolute -inset-1 bg-gradient-to-r from-gray-600 to-gray-800 rounded-xl blur opacity-30"></div>
                   <div className="relative w-full h-full bg-black rounded-xl overflow-hidden border border-gray-800">
-                    <img src="/api/placeholder/200/200" alt="Profile" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
+                    <img src= {ME} alt="Profile" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
                   </div>
                 </motion.div>
                 
@@ -828,21 +866,7 @@ function App() {
                               </motion.div>
                               
                               {/* Hover Instructions */}
-                              <div className="flex items-center justify-center mt-2">
-                                <motion.div 
-                                  className="text-xs text-white/40 flex items-center"
-                                  variants={{
-                                    collapsed: { opacity: 1 },
-                                    expanded: { opacity: 0 }
-                                  }}
-                                >
-                                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                  </svg>
-                                  Hover for details
-                                </motion.div>
-                              </div>
+                             
                             </div>
                           </motion.div>
                         </GlassCard>
@@ -928,146 +952,137 @@ function App() {
                 ))}
               </div>
             </div>
-  
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-    {filteredProjects.map((project) => (
-      <Tilt key={project.title} options={{ max: 15, scale: 1.05, speed: 400 }}>
-        <div
-          className="group h-full"
-          onMouseEnter={() => {setIsHovering(true); setHoverItem(`View ${project.title}`)}}
-          onMouseLeave={() => {setIsHovering(false); setHoverItem(null)}}
-        >
-          <GlassCard className="h-full overflow-hidden relative">
-            {/* Project Image Container */}
-            <div className="aspect-video rounded-lg overflow-hidden mb-5 relative">
-              <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent z-0 opacity-60"></div>
-              <div className="absolute inset-0 bg-black bg-opacity-40 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <div className="flex flex-col items-center gap-3">
-                  <a 
-                    href={project.demoUrl || "#"}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-5 py-2 bg-white text-black rounded-lg font-medium flex items-center space-x-2 transform -translate-y-10 group-hover:translate-y-0 transition-transform duration-500"
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {filteredProjects.map((project) => (
+                <Tilt key={project.title} options={{ max: 15, scale: 1.05, speed: 400 }}>
+                  <div
+                    className="group h-full"
+                    onMouseEnter={() => {setIsHovering(true); setHoverItem(`View ${project.title}`)}}
+                    onMouseLeave={() => {setIsHovering(false); setHoverItem(null)}}
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                    </svg>
-                    <span>Live Demo</span>
-                  </a>
-                  
-                  <a 
-                    href={project.githubUrl || "https://github.com/Arhaan-Siddiquee"}
-                    target="_blank"
-                    rel="noopener noreferrer" 
-                    className="px-5 py-2 bg-black bg-opacity-80 border border-white border-opacity-20 text-white rounded-lg font-medium flex items-center space-x-2 transform translate-y-10 group-hover:translate-y-0 transition-transform duration-500"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-github" viewBox="0 0 16 16">
-                      <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-                    </svg>
-                    <span>View Code</span>
-                  </a>
-                </div>
-              </div>
-              <img 
-                src={project.image} 
-                alt={project.title} 
-                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 grayscale group-hover:grayscale-0" 
-              />
-              
-              {/* Project Status Badge */}
-              {project.status && (
-                <div className="absolute top-3 right-3 z-20">
-                  <span className={`text-xs px-3 py-1 rounded-full ${
-                    project.status === 'completed' ? 'bg-green-500 bg-opacity-90' : 
-                    project.status === 'in-progress' ? 'bg-yellow-500 bg-opacity-90' : 
-                    'bg-blue-500 bg-opacity-90'
-                  } text-white flex items-center space-x-1`}>
-                    <span className={`w-2 h-2 rounded-full ${
-                      project.status === 'completed' ? 'bg-green-200' : 
-                      project.status === 'in-progress' ? 'bg-yellow-200' : 
-                      'bg-blue-200'
-                    } mr-1`}></span>
-                    <span>{project.status === 'completed' ? 'Completed' : 
-                          project.status === 'in-progress' ? 'In Progress' : 
-                          'Planned'}</span>
-                  </span>
-                </div>
-              )}
-            </div>
-            
-            {/* Project Content */}
-            <div className="px-1">
-              <div className="flex flex-wrap gap-2 mb-3">
-                <span className="text-xs px-3 py-1 rounded-full bg-white bg-opacity-10 text-white inline-block">
-                  {project.category.charAt(0).toUpperCase() + project.category.slice(1)}
-                </span>
-                
-                {project.tags && project.tags.map((tag, idx) => (
-                  <span key={idx} className="text-xs px-3 py-1 rounded-full bg-black bg-opacity-40 border border-white border-opacity-10 text-gray-300 inline-block">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              
-              <h3 className="text-xl font-bold mb-2 group-hover:text-white transition-colors duration-300">{project.title}</h3>
-              <p className="text-gray-400 mb-4">{project.description}</p>
-              
-              {/* Tech Stack with Icons */}
-              <div className="mb-4">
-                <div className="text-xs text-gray-500 uppercase mb-2 font-medium">Tech Stack</div>
-                <div className="flex flex-wrap gap-2">
-                  {project.techArray ? project.techArray.map((tech, idx) => (
-                    <span key={idx} className="text-xs bg-black bg-opacity-50 text-gray-300 px-2 py-1 rounded flex items-center">
-                      {tech}
-                    </span>
-                  )) : project.tech?.split(',').map((tech, idx) => (
-                    <span key={idx} className="text-xs bg-black bg-opacity-50 text-gray-300 px-2 py-1 rounded flex items-center">
-                      {tech.trim()}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              
-              {/* Expandable Features Section */}
-              <div className="overflow-hidden border-t border-white border-opacity-10 pt-3">
-                <div className="text-xs text-gray-500 uppercase mb-2 font-medium">Key Features</div>
-                <ul className="text-sm text-gray-300 space-y-1 pl-4 list-disc">
-                  {project.features ? project.features.map((feature, idx) => (
-                    <li key={idx}>{feature}</li>
-                  )) : (
-                    <>
-                      <li>Responsive design with modern UI/UX principles</li>
-                      <li>Optimized performance and accessibility</li>
-                      <li>Integration with third-party APIs</li>
-                    </>
-                  )}
-                </ul>
-                
-                {project.contribution && (
-                  <div className="mt-3">
-                    <div className="text-xs text-gray-500 uppercase mb-2 font-medium">My Contribution</div>
-                    <p className="text-sm text-gray-300">{project.contribution}</p>
+                    <GlassCard className="h-full overflow-hidden relative">
+                      {/* Project Image Container */}
+                      <div className="aspect-video rounded-lg overflow-hidden mb-5 relative">
+                        <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent z-0 opacity-60"></div>
+                        <div className="absolute inset-0 bg-black bg-opacity-40 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                          <div className="flex flex-col items-center gap-3">
+                            {project.demoUrl && (
+                              <a 
+                                href={project.demoUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="px-5 py-2 bg-white text-black rounded-lg font-medium flex items-center space-x-2 transform -translate-y-10 group-hover:translate-y-0 transition-transform duration-500"
+                              >
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                </svg>
+                                <span>Live Demo</span>
+                              </a>
+                            )}
+                            
+                            {project.githubUrl && (
+                              <a 
+                                href={project.githubUrl}
+                                target="_blank"
+                                rel="noopener noreferrer" 
+                                className="px-5 py-2 bg-black bg-opacity-80 border border-white border-opacity-20 text-white rounded-lg font-medium flex items-center space-x-2 transform translate-y-10 group-hover:translate-y-0 transition-transform duration-500"
+                              >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-github" viewBox="0 0 16 16">
+                                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                                </svg>
+                                <span>View Code</span>
+                              </a>
+                            )}
+                          </div>
+                        </div>
+                        <img 
+                          src={project.image} 
+                          alt={project.title} 
+                          className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 grayscale group-hover:grayscale-0" 
+                        />
+                        
+                        {/* Project Status Badge */}
+                        {project.status && (
+                          <div className="absolute top-3 right-3 z-20">
+                            <span className={`text-xs px-3 py-1 rounded-full ${
+                              project.status === 'completed' ? 'bg-green-500 bg-opacity-90' : 
+                              project.status === 'in-progress' ? 'bg-yellow-500 bg-opacity-90' : 
+                              'bg-blue-500 bg-opacity-90'
+                            } text-white flex items-center space-x-1`}>
+                              <span className={`w-2 h-2 rounded-full ${
+                                project.status === 'completed' ? 'bg-green-200' : 
+                                project.status === 'in-progress' ? 'bg-yellow-200' : 
+                                'bg-blue-200'
+                              } mr-1`}></span>
+                              <span>{project.status === 'completed' ? 'Completed' : 
+                                    project.status === 'in-progress' ? 'In Progress' : 
+                                    'Planned'}</span>
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                      
+                      {/* Project Content */}
+                      <div className="px-1">
+                        <div className="flex flex-wrap gap-2 mb-3">
+                          <span className="text-xs px-3 py-1 rounded-full bg-white bg-opacity-10 text-white inline-block">
+                            {project.category.charAt(0).toUpperCase() + project.category.slice(1)}
+                          </span>
+                          
+                          {project.tags && project.tags.map((tag, idx) => (
+                            <span key={idx} className="text-xs px-3 py-1 rounded-full bg-black bg-opacity-40 border border-white border-opacity-10 text-gray-300 inline-block">
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                        
+                        <h3 className="text-xl font-bold mb-2 group-hover:text-white transition-colors duration-300">{project.title}</h3>
+                        <p className="text-gray-400 mb-4">{project.description}</p>
+                        
+                        {/* Tech Stack with Icons */}
+                        <div className="mb-4">
+                          <div className="text-xs text-gray-500 uppercase mb-2 font-medium">Tech Stack</div>
+                          <div className="flex flex-wrap gap-2">
+                            {project.techArray ? project.techArray.map((tech, idx) => (
+                              <span key={idx} className="text-xs bg-black bg-opacity-50 text-gray-300 px-2 py-1 rounded flex items-center">
+                                {tech}
+                              </span>
+                            )) : project.tech?.split(',').map((tech, idx) => (
+                              <span key={idx} className="text-xs bg-black bg-opacity-50 text-gray-300 px-2 py-1 rounded flex items-center">
+                                {tech.trim()}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                        
+                        {/* Expandable Features Section */}
+                        <div className="overflow-hidden border-t border-white border-opacity-10 pt-3">
+                          <div className="text-xs text-gray-500 uppercase mb-2 font-medium">Key Features</div>
+                          <ul className="text-sm text-gray-300 space-y-1 pl-4 list-disc">
+                            {project.features && project.features.map((feature, idx) => (
+                              <li key={idx}>{feature}</li>
+                            ))}
+                          </ul>
+                          
+                          {project.contribution && (
+                            <div className="mt-3">
+                              <div className="text-xs text-gray-500 uppercase mb-2 font-medium">My Contribution</div>
+                              <p className="text-sm text-gray-300">{project.contribution}</p>
+                            </div>
+                          )}
+                        </div>
+                        
+                        {/* Hover Instructions */}
+                        
+                      </div>
+                    </GlassCard>
                   </div>
-                )}
-              </div>
-              
-              {/* Hover Instructions */}
-              <div className="absolute bottom-3 right-3">
-                <div className="text-xs text-white/40 flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  Hover for details
-                </div>
-              </div>
+                </Tilt>
+              ))}
             </div>
-          </GlassCard>
-        </div>
-      </Tilt>
-    ))}
-  </div>
-</section>
+
+          </section>  
             {/* Empty State */}
             {filteredProjects.length === 0 && (
               <motion.div 
@@ -1080,7 +1095,7 @@ function App() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
                 <h3 className="text-xl font-bold mb-2">No projects found</h3>
-                <p className="text-gray-400 text-center max-w-md">I don't have any {activeTab !== 'all' ? activeTab : ''} projects to show at the moment. Check back later or explore other categories.</p>
+                <p className="text-gray-400 text-center max-w-md">Adding {activeTab !== 'all' ? activeTab : ''} in progress will add this shortly. Check back later or explore other categories.</p>
                 <motion.button
                   className="mt-4 px-4 py-2 bg-white text-black rounded-lg font-medium"
                   onClick={() => setActiveTab('all')}
@@ -1617,12 +1632,7 @@ function App() {
                   role: "Co-Founder, Niramaya",
                   image: NiramayaLg
                 },
-                {
-                  text: "Working with Arhaan was truly a game-changer for our startup. From the very beginning, his deep technical expertise was evident as he seamlessly integrated innovative solutions into our platform. What really stood out, though, was his unique ability to balance that technical know-how with a keen eye for design. His design sensibility ensured that the user experience wasn’t just functional but also intuitive and visually appealing. Thanks to Arhaan’s contributions, we were able to create a platform that not only meets our users’ needs but also exceeds their expectations. ",
-                  author: "",
-                  role: "Founder, TechNova",
-                  image: "/api/placeholder/100/100"
-                }
+                
               ].map((testimonial, index) => (
                 <Tilt key={index} options={{ max: 10, scale: 1.02, speed: 300 }}>
                   <motion.div
