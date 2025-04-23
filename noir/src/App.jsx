@@ -17,6 +17,7 @@ import xcode from "./assets/xcode.gif";
 import fitflow from "./assets/fitflow.png";
 import ME from "./assets/me.png";
 import resume from "./assets/resume.png";
+import kanban from "./assets/kanban.gif";
 
 // Styled components
 const NoirContainer = styled.div`
@@ -240,6 +241,21 @@ function App() {
       ],
       demoUrl: "https://fitflow-excercise.vercel.app/",
       githubUrl: "https://github.com/Arhaan-Siddiquee/fitflow-excercise"
+    },
+    {
+      title: "KanBanLite",
+      category: "web",
+      tech: "NextJs, Flask",
+      description: "KanBanLite is a lightweight, drag-and-drop Kanban board designed to simplify task management and boost productivity.",
+      image: kanban,
+      status: "completed",
+      features: [
+        "Features an intuitive UI for creating, editing, and organizing tasks across customizable columns.",
+        "Supports drag-and-drop functionality for smooth task movement between stages (e.g., To Do, In Progress, Done).",
+        "Offers local storage integration to persist tasks without the need for a backend.",
+      ],
+      demoUrl: "https://kanban-lite.vercel.app/",
+      githubUrl: "https://github.com/Arhaan-Siddiquee/KanbanLite"
     },
     {
       title: "Resume.io",
