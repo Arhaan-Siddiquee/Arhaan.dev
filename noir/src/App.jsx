@@ -18,6 +18,8 @@ import fitflow from "./assets/fitflow.png";
 import ME from "./assets/me.png";
 import resume from "./assets/resume.png";
 import kanban from "./assets/kanban.gif";
+import gdsc from "./assets/gdsc.png";
+import codenex from "./assets/codenex.png";
 
 // Styled components
 const NoirContainer = styled.div`
@@ -212,7 +214,7 @@ function App() {
     },
     {
       title: "10xCoders",
-      category: "web",
+      category: "ai",
       tech: "ReactJs, GeminiAPI, PeerJs",
       status: "completed",
       description: "An all-in-one tech learning hub offering curated roadmaps, projects, and an AI assistant to supercharge your coding journey.",
@@ -259,7 +261,7 @@ function App() {
     },
     {
       title: "Resume.io",
-      category: "web",
+      category: "ai",
       tech: "ReactJs, TailwindCSS, KaTeX, pdfjs",
       description: "Resume.io is a LaTeX-based resume editor with ATS-friendly resume checking and enhancement features.",
       image: resume,
@@ -272,7 +274,38 @@ function App() {
       ],
       demoUrl: "https://resume-io-one.vercel.app/",
       githubUrl: "https://github.com/Arhaan-Siddiquee/Resume.io"
-    }
+    },
+    {
+      title: "GDSC WireFrame",
+      category: "design",
+      tech: "Figma, WireFrame, Animated, Prototype",
+      description: "GDSC Website Wireframe is a clean, user-focused design blueprint for a community-driven website, crafted to reflect the mission and values of Google Developer Student Clubs.",
+      image: gdsc,
+      status: "completed",
+      features: [
+        "Designed in Figma with a focus on intuitive navigation, modern layout, and responsive structure.",
+        "Includes dedicated sections for events, projects, team, and community engagement.",
+        "Emphasizes visual hierarchy and accessibility to enhance user interaction and clarity.",
+        "Serves as a foundational guide for frontend development, aligning with GDSC branding and goals.",
+      ],
+      demoUrl: "https://www.figma.com/proto/i3iPqLXCxYtIPxac4q2t82/GDSCtaskedWebsite?node-id=46-15&starting-point-node-id=1%3A2",
+      figmaUrl : "https://www.figma.com/design/i3iPqLXCxYtIPxac4q2t82/GDSCtaskedWebsite?node-id=0-1&p=f&t=XXHE3hGRgjFlzLlH-0"
+    },
+    {
+    title: "CodeNex Website Design",
+    category: "design",
+    tech: "Figma, Animated, Prototype",
+    description: "CodeNex Website Design is a modern, developer-centric UI/UX concept tailored for a coding club.",
+    image: codenex,
+    status: "completed",
+    features: [
+      "Crafted in Figma with a clean, dark-themed aesthetic and intuitive navigation for a smooth user experience.",
+      "Includes sections for events, projects, and community engagement, emphasizing the club's mission.",
+    ],
+    demoUrl: "https://www.figma.com/proto/lQ0UfUMdJTbkcGrC1eZ3t6/Codenex-Task?node-id=1-74&p=f&t=YA8kGpATMyq0jb79-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
+    figmaUrl : "https://www.figma.com/design/lQ0UfUMdJTbkcGrC1eZ3t6/Codenex-Task?node-id=0-1&p=f&t=YA8kGpATMyq0jb79-0"
+  }
+
   ];
   
   // Skills data
@@ -974,7 +1007,7 @@ function App() {
               </div>
               
               <div className="flex space-x-3 w-full md:w-auto overflow-x-auto pb-2 md:pb-0 mt-4 md:mt-0">
-                {['all', 'web', 'design', 'mobile', 'ai'].map((tab) => (
+                {['all', 'web', 'design', 'ai'].map((tab) => (
                   <button
                     key={tab}
                     className={`px-4 py-2 text-xs rounded-lg transition-colors ${activeTab === tab ? 'bg-white text-black' : 'bg-black text-gray-400 hover:bg-gray-900'}`}
@@ -1014,18 +1047,51 @@ function App() {
                               </a>
                             )}
                             
-                            {project.githubUrl && (
-                              <a 
-                                href={project.githubUrl}
-                                target="_blank"
-                                rel="noopener noreferrer" 
-                                className="px-5 py-2 bg-black bg-opacity-80 border border-white border-opacity-20 text-white rounded-lg font-medium flex items-center space-x-2 transform translate-y-10 group-hover:translate-y-0 transition-transform duration-500"
-                              >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-github" viewBox="0 0 16 16">
-                                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-                                </svg>
-                                <span>View Code</span>
-                              </a>
+                            {/* Conditional rendering based on project category */}
+                            {project.category === 'design' ? (
+                              <>
+                                {project.figmaUrl && (
+                                  <a 
+                                    href={project.figmaUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer" 
+                                    className="px-5 py-2 bg-black bg-opacity-80 border border-white border-opacity-20 text-white rounded-lg font-medium flex items-center space-x-2 transform translate-y-10 group-hover:translate-y-0 transition-transform duration-500"
+                                  >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                                      <path d="M15.332 8.668a3.333 3.333 0 0 0 0-6.663H8.668a3.333 3.333 0 0 0 0 6.663 3.333 3.333 0 0 0 0 6.665 3.333 3.333 0 0 0 0 6.664 3.334 3.334 0 0 0 3.334-3.334v-3.33a3.333 3.333 0 0 0 3.33-6.665zm0 3.332a1.667 1.667 0 0 1 0-3.331 1.667 1.667 0 0 1 0 3.331zm-6.664-3.332a1.667 1.667 0 0 1 0-3.331h6.664a1.667 1.667 0 0 1 0 3.331H8.668zm0 3.332a1.667 1.667 0 0 1 0 3.332 1.667 1.667 0 0 1 0-3.332zm0 9.997a1.667 1.667 0 0 1 0-3.331 1.667 1.667 0 0 1 0 3.331zm3.332-1.667v-3.33h3.332a1.667 1.667 0 0 1 0 3.33H12z"/>
+                                    </svg>
+                                    <span>View in Figma</span>
+                                  </a>
+                                )}
+                                
+                                {project.behanceUrl && (
+                                  <a 
+                                    href={project.behanceUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer" 
+                                    className="px-5 py-2 bg-black bg-opacity-80 border border-white border-opacity-20 text-white rounded-lg font-medium flex items-center space-x-2 transform translate-y-10 group-hover:translate-y-0 transition-transform duration-500"
+                                  >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                                      <path d="M7.803 5.731c.589 0 1.119.051 1.605.155.483.103.895.273 1.243.508.343.235.611.547.804.939.195.391.293.872.293 1.443 0 .619-.141 1.137-.421 1.551-.284.413-.7.751-1.245 1.012.749.219 1.307.601 1.675 1.146.374.549.557 1.205.557 1.969 0 .621-.12 1.16-.359 1.612-.242.457-.571.828-.989 1.114-.419.291-.911.506-1.48.641-.565.139-1.172.206-1.819.206H2V5.731H7.803zm-.351 4.972c.487 0 .891-.107 1.211-.327.32-.219.481-.567.481-1.042 0-.266-.051-.488-.151-.669a1.176 1.176 0 0 0-.417-.429 1.827 1.827 0 0 0-.627-.239 3.987 3.987 0 0 0-.791-.077H4.709v2.783h2.743zm.151 5.239c.301 0 .579-.032.835-.097.259-.064.479-.169.664-.315a1.43 1.43 0 0 0 .431-.545c.103-.219.154-.485.154-.799 0-.633-.18-1.084-.541-1.354-.359-.271-.857-.404-1.494-.404H4.709v3.514h2.894zM18 7.615v-1.88h-4.678v1.88H18zm1.273 4.561c-.198-.471-.465-.87-.799-1.204a3.563 3.563 0 0 0-1.238-.79c-.474-.187-.991-.28-1.55-.28-.521 0-1.021.093-1.499.28-.477.187-.888.453-1.239.79-.343.334-.617.741-.819 1.204-.204.471-.305.995-.305 1.584 0 .57.101 1.086.305 1.54.202.46.476.853.819 1.187.343.331.762.586 1.239.759.478.174.978.261 1.499.261.56 0 1.076-.086 1.55-.261a3.46 3.46 0 0 0 1.238-.759 3.755 3.755 0 0 0 .799-1.187c.202-.454.303-.97.303-1.54 0-.589-.101-1.113-.303-1.584zM20.8 14.1h-3.654c0 .398.117.764.339 1.097.312.433.812.65 1.49.65.47 0 .87-.118 1.197-.36.181-.129.334-.332.463-.611h1.898c-.303.928-.761 1.594-1.375 1.994-.609.4-1.349.602-2.223.602a4.635 4.635 0 0 1-1.64-.282c-.498-.188-.916-.456-1.259-.806a3.826 3.826 0 0 1-.822-1.254c-.197-.49-.295-1.033-.295-1.635 0-.574.098-1.109.287-1.596.195-.49.47-.918.833-1.279.363-.364.799-.651 1.313-.857a4.579 4.579 0 0 1 1.724-.311c.699 0 1.306.13 1.822.391.522.258.944.611 1.278 1.061.337.447.572.957.717 1.529.134.583.176 1.202.124 1.848a35.06 35.06 0 0 1-.017.619zm-3.583-2.154c-.442 0-.793.117-1.045.35-.259.238-.421.584-.489 1.044h2.941c-.035-.447-.175-.79-.43-1.031-.252-.238-.584-.363-.977-.363z"/>
+                                    </svg>
+                                    <span>View on Behance</span>
+                                  </a>
+                                )}
+                              </>
+                            ) : (
+                              project.githubUrl && (
+                                <a 
+                                  href={project.githubUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer" 
+                                  className="px-5 py-2 bg-black bg-opacity-80 border border-white border-opacity-20 text-white rounded-lg font-medium flex items-center space-x-2 transform translate-y-10 group-hover:translate-y-0 transition-transform duration-500"
+                                >
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-github" viewBox="0 0 16 16">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                                  </svg>
+                                  <span>View Code</span>
+                                </a>
+                              )
                             )}
                           </div>
                         </div>
@@ -1114,8 +1180,7 @@ function App() {
                 </Tilt>
               ))}
             </div>
-
-          </section>  
+          </section>
             {/* Empty State */}
             {filteredProjects.length === 0 && (
               <motion.div 
@@ -1133,7 +1198,7 @@ function App() {
                   className="mt-4 px-4 py-2 bg-white text-black rounded-lg font-medium"
                   onClick={() => setActiveTab('all')}
                   whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  whileTap={{ scale: 0.95 }}  
                 >
                   View All Projects
                 </motion.button>
