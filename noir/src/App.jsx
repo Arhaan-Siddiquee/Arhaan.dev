@@ -16,6 +16,7 @@ import xenigma from "./assets/xenigma.gif";
 import xcode from "./assets/xcode.gif";
 import fitflow from "./assets/fitflow.png";
 import ME from "./assets/me.png";
+import resume from "./assets/resume.png";
 
 // Styled components
 const NoirContainer = styled.div`
@@ -239,6 +240,22 @@ function App() {
       ],
       demoUrl: "https://fitflow-excercise.vercel.app/",
       githubUrl: "https://github.com/Arhaan-Siddiquee/fitflow-excercise"
+    },
+    {
+      title: "Resume.io",
+      category: "web",
+      tech: "ReactJs, TailwindCSS, KaTeX, pdfjs",
+      description: "Resume.io is a LaTeX-based resume editor with ATS-friendly resume checking and enhancement features.",
+      image: resume,
+      status: "completed",
+      features: [
+        "Allows users to create and edit professional resumes using LaTeX templates for precision formatting.",
+        "Integrates an ATS (Applicant Tracking System) checker to ensure resumes pass automated recruitment filters.",
+        "Offers real-time suggestions to enhance resume content, structure, and keyword optimization.",
+        "User-friendly interface with download options in PDF and LaTeX formats for both technical and non-technical users."
+      ],
+      demoUrl: "https://resume-io-one.vercel.app/",
+      githubUrl: "https://github.com/Arhaan-Siddiquee/Resume.io"
     }
   ];
   
