@@ -457,17 +457,8 @@ function App() {
       <NoirContainer>
         {/* Noir background elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {/* Subtle noise overlay */}
-          <div className="absolute inset-0 opacity-20" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.5'/%3E%3C/svg%3E")`,
-          }} />
-          
           {/* Gradient background */}
-          <div className="absolute inset-0 opacity-40">
-            <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-gray-800 blur-3xl"></div>
-            <div className="absolute top-3/4 right-1/4 w-96 h-96 rounded-full bg-gray-900 blur-3xl"></div>
-            <div className="absolute bottom-1/4 left-3/4 w-80 h-80 rounded-full bg-gray-700 blur-3xl"></div>
-          </div>
+
           
           {/* Scanlines effect */}
           <div className="absolute inset-0 bg-repeat opacity-5" style={{
@@ -534,7 +525,7 @@ function App() {
           </div>
         </header>
         
-        <main className="max-w-7xl mx-auto pt-32 px-6">
+        <main className="max-w-[1200px] mx-auto pt-32 px-6">
           
           {/* Hero Section */}
           <motion.section 
@@ -564,7 +555,7 @@ function App() {
                     className="flex items-center mb-2" 
                     variants={itemVariants}
                   >
-                    <div className="w-2 h-2 bg-white rounded-full mr-2"></div>
+                    <div className="w-4 h-4 bg-green-600 shadow-sm shadow-green-400 rounded-full mr-2"></div>
                     <span className="text-sm text-white font-medium tracking-wide">AVAILABLE FOR HIRE</span>
                   </motion.div>
                   
