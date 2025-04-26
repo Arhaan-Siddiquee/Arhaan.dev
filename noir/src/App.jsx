@@ -312,12 +312,12 @@ function App() {
   const skills = [
     { name: "React.js", level: 90, category: "frontend" },
     { name: "JavaScript", level: 85, category: "frontend" },
-    { name: "Styled Components", level: 95, category: "frontend" },
+    { name: "Docker", level: 65, category: "Backend" },
     { name: "TypeScript", level: 70, category: "frontend" },
     { name: "Node.js", level: 65, category: "backend" },
     { name: "UI/UX Design", level: 85, category: "design" },
     { name: "Figma", level: 95, category: "design" },
-    { name: "GraphQL", level: 50, category: "backend" }
+    { name: "DevOps", level: 50, category: "backend" }
   ];
   
   // Handle custom cursor
@@ -555,7 +555,7 @@ function App() {
                     className="flex items-center mb-2" 
                     variants={itemVariants}
                   >
-                    <div className="w-4 h-4 bg-green-600 shadow-sm shadow-green-400 rounded-full mr-2"></div>
+                    <div className="w-4 h-4 bg-green-600 shadow- shadow-green-400 rounded-full mr-2"></div>
                     <span className="text-sm text-white font-medium tracking-wide">AVAILABLE FOR HIRE</span>
                   </motion.div>
                   
@@ -1172,6 +1172,7 @@ function App() {
               ))}
             </div>
           </section>
+          
             {/* Empty State */}
             {filteredProjects.length === 0 && (
               <motion.div 
@@ -1550,109 +1551,6 @@ function App() {
                         User feedback cycles
                       </li>
                     </ul>
-                  </motion.div>
-                </div>
-              </motion.div>
-
-              {/* New Creative Skills Section */}
-              <motion.div 
-                className="mt-10 p-6 bg-black bg-opacity-50 rounded-lg border border-white border-opacity-5" 
-                variants={itemVariants}
-                whileHover={{ 
-                  boxShadow: "0 0 15px rgba(255, 255, 255, 0.1)",
-                  borderColor: "rgba(255, 255, 255, 0.2)"
-                }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ 
-                  opacity: 1, 
-                  y: 0,
-                  transition: { delay: 1 }
-                }}
-              >
-                <h3 className="text-xl font-bold mb-4 flex items-center">
-                  <motion.span 
-                    className="inline-block w-2 h-6 bg-white mr-3"
-                    animate={{ height: [20, 24, 20] }}
-                    transition={{ repeat: Infinity, duration: 2, delay: 2 }}
-                  ></motion.span>
-                  Creative & Design Skills
-                </h3>
-                <p className="text-gray-300 mb-6 text-sm leading-relaxed">
-                  Technical excellence meets artistic vision. My background in design complements my development skills,
-                  allowing me to bridge the gap between aesthetics and functionality.
-                </p>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <motion.div 
-                    className="space-y-3"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1.2 }}
-                  >
-                    {[
-                      { skill: "UI/UX Design", level: 85 },
-                      { skill: "Animation & Motion", level: 78 },
-                      { skill: "Design Systems", level: 90 },
-                      { skill: "Typography", level: 82 }
-                    ].map((item, index) => (
-                      <div key={item.skill} className="space-y-1">
-                        <div className="flex justify-between items-center">
-                          <span className="text-sm">{item.skill}</span>
-                          <span className="text-xs text-gray-400">{item.level}%</span>
-                        </div>
-                        <div className="w-full h-1 bg-black bg-opacity-40 rounded-full overflow-hidden">
-                          <motion.div 
-                            className="h-full bg-gradient-to-r from-gray-400 to-white"
-                            initial={{ width: 0 }}
-                            animate={{ width: `${item.level}%` }}
-                            transition={{ 
-                              duration: 1.5, 
-                              delay: 1.2 + (index * 0.1),
-                              ease: "easeOut"
-                            }}
-                            whileHover={{
-                              backgroundImage: "linear-gradient(to right, #a8a8a8, #ffffff)"
-                            }}
-                          ></motion.div>
-                        </div>
-                      </div>
-                    ))}
-                  </motion.div>
-                  
-                  <motion.div 
-                    className="grid grid-cols-2 gap-3"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1.4 }}
-                  >
-                    {[
-                      "Figma", "Adobe XD", "Photoshop", "Illustrator", 
-                      "After Effects", "Blender", "Cinema 4D", "Sketch"
-                    ].map((tool, index) => (
-                      <motion.div
-                        key={tool} 
-                        className="flex items-center p-3 bg-white bg-opacity-5 rounded-lg" 
-                        whileHover={{ 
-                          backgroundColor: "rgba(255, 255, 255, 0.1)",
-                          x: 3,
-                          transition: { duration: 0.2 }
-                        }}
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ 
-                          opacity: 1, 
-                          y: 0,
-                          transition: { delay: 1.4 + (index * 0.05) }
-                        }}
-                      >
-                        <motion.div 
-                          className="w-6 h-6 rounded-full bg-white bg-opacity-10 mr-2 flex items-center justify-center"
-                          whileHover={{ rotate: 15 }}
-                        >
-                          <span className="text-xs font-bold">{tool.charAt(0)}</span>
-                        </motion.div>
-                        <span className="text-xs">{tool}</span>
-                      </motion.div>
-                    ))}
                   </motion.div>
                 </div>
               </motion.div>
